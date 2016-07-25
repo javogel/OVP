@@ -18,21 +18,30 @@
  @import "bootstrap";
  @import 'bootstrap/theme';
 
+ .logo-header {
+   max-width: 180px;
+   padding: 15px;
+ }
 
+ .user-name {
+    padding: 15px;
+ }
 
  .fb-login{
    margin: 20px auto;
-
    display: block;
  }
 
-
  .fb-login img {
-
      max-width: 165px;
  }
 
 
  .navbar ul li img {
    border-radius: 50%;
+ }
+
+ .dropdown #dLabel{
+   padding:0px;
+
  }
