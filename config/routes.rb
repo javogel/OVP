@@ -1,19 +1,17 @@
 Rails.application.routes.draw do
 
-  get 'videos/new'
+  # get 'videos/new', to: "videos#new", as: 'new_video'
+  # post '/videos', to: "videos#create"
+  # delete 'videos/destroy', to: "videos#destroy"
+  # get 'videos/:id', to: "videos#show", as: 'video'
+  # get '/videos', to: "videos#index"
+  resources :videos
 
-  get 'videos/create'
+  root to: 'pages#home'
 
-  get 'videos/destroy'
-
-  get 'videos/show'
-
-  get 'videos/index'
-
-root to: 'pages#home'
-
-get '/auth/:provider/callback', to: 'sessions#create'
-delete '/logout', to: 'sessions#destroy'
+  get '/login', to: 'pages#login', as: 'login'
+  get '/auth/:provider/callback', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 
 
 

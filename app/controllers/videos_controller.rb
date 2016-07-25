@@ -1,13 +1,17 @@
 class VideosController < ApplicationController
+  before_action :set_video, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
+
   def new
     @video = Video.new
   end
 
   def create
-    video = Yt::Video.new url: video_params[:url]
+    @video_url = params[:video][:url]
+    video = Yt::Video.new url: @video_url
     @embed_code = video.embed_html
     @name = video.title
-    @video = Video.new(name: @name, url: video_params[:url], video_embed: @embed_code)
+    @video = Video.new(name: @name, url: @video_url, video_embed: @embed_code, user: current_user)
 
     respond_to do |format|
       if @video.save
@@ -20,6 +24,18 @@ class VideosController < ApplicationController
     end
   end
 
+  def update
+    respond_to do |format|
+      if @video.update(video_params)
+        format.html { redirect_to @video, notice: 'Video was successfully updated.' }
+        format.json { render :show, status: :ok, location: @video }
+      else
+        format.html { render :edit }
+        format.json { render json: @video.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def destroy
   end
 
@@ -27,5 +43,13 @@ class VideosController < ApplicationController
   end
 
   def index
+    @videos = Video.all
   end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_video
+      @video = Video.find(params[:id])
+    end
+
 end
