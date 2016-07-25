@@ -3,7 +3,7 @@ require 'spec_helper'
 
 
 
-  describe "GET application#home" do
+  describe "GET pages#home" do
     context "logged in" do
       it "returns 200"
         expect(response.status).to eq(200) do

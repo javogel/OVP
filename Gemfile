@@ -7,9 +7,10 @@ gem 'omniauth-facebook'
 gem 'bootstrap-sass'
 gem 'figaro'
 gem 'yt', '~> 0.25.5'
-gem 'pry-rails', :group => :development
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
+  gem 'pry-rails'
 end
 
 
