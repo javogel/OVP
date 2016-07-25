@@ -7,6 +7,7 @@ gem 'omniauth-facebook'
 gem 'bootstrap-sass'
 gem 'figaro'
 gem 'yt', '~> 0.25.5'
+gem 'rack-cors', :require => 'rack/cors'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
