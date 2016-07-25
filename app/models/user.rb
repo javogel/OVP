@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :videos
 
   class << self
     def from_omniauth(auth_hash)
@@ -10,7 +11,7 @@ class User < ApplicationRecord
       user.image_url = auth_hash['info']['image']
       user.email = auth_hash['info']['email']
       user.url = auth_hash['info']['urls'][user.provider.capitalize]
-    
+
       user.save!
 
       user

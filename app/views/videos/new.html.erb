@@ -1,0 +1,10 @@
+<h1>New Video</h1>
+
+
+<%= form_tag("/videos", method: "post") do %>
+  <%= label_tag(:url, "Video URL") %>
+  <%= text_field(:video, :url, size: 20) %>
+  <%= submit_tag("Add") %>
+<% end %>
+
+<%= link_to 'Back', videos_path %>
