@@ -1,6 +1,19 @@
 source 'https://rubygems.org'
 
 
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'bootstrap-sass'
+gem 'figaro'
+gem 'yt', '~> 0.25.5'
+gem 'pry-rails', :group => :development
+group :development, :test do
+  gem 'rspec-rails', '~> 3.5'
+end
+
+
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
 # Use postgresql as the database for Active Record
