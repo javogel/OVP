@@ -1,3 +1,41 @@
 // Place all the styles related to the Videos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.video-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+
+}
+.video-main {
+  width: 640px;
+  height: 360px;
+
+}
+
+
+
+
+@media only screen and (max-width:700px){
+body::before{ content: "Media query (width < 700px) fired"; font-weight: bold; display: block; text-align: center; background: rgba(255,255,0, 0.9);
+ position: absolute; top: 0; left: 0; right: 0; z-index: 99;}
+
+  .video-main {
+
+    width: inherit;
+    height: inherit;
+  }
+
+  .navbar-mobile-dropdown{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+  }
+
+}

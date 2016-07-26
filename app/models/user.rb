@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_many :videos
+  validates :first_name, :last_name, :email, presence: true
+  validates :email, uniqueness: true
 
   class << self
     def from_omniauth(auth_hash)

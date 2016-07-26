@@ -7,6 +7,8 @@
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+
   </head>
 
   <body>
@@ -14,38 +16,65 @@
     <nav class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">
-        <%= image_tag 'vkush-logo3.png', alt: "Logo", :class => "logo-header" %>
+
+
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+        <%= link_to image_tag('qush-logo2.png', alt: "Logo", :class => "logo-header"), root_path %>
         </div>
-        <div id="navbar">
 
-          <% if current_user %>
-            <ul class="nav navbar-nav pull-right">
-              <li class="user-name">Hi, <%= current_user.first_name %></li>
+        <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
+          <div id="navbar" class="navbar-mobile-dropdown">
+
+            <% if current_user %>
+              <ul class="nav navbar-nav pull-right">
+                <li class="user-name hidden-xs">Hi, <%= current_user.first_name %></li>
 
 
-              <li class="dropdown">
-                <a id="dLabel" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                  <%= image_tag current_user.image_url, alt: current_user.first_name, :class => "user-profile-pic"  %>
-                </a>
 
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                   <li><a href="#">Watch the goodnes</a></li>
-                   <li><a href="#">My kush</a></li>
 
-                   <li><a href="#">Categories</a></li>
-                   <li role="separator" class="divider"></li>
 
-                   <li><a href="#">Add a video kush!</a></li>
-                </ul>
 
-            </li>
-              <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
+                <li class="dropdown hidden-xs">
+                  <a id="dLabel" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <%= image_tag current_user.image_url, alt: current_user.first_name, :class => "user-profile-pic"  %>
+                  </a>
+
+                  <ul class="dropdown-menu centerDropdown" aria-labelledby="dropdownMenu1">
+                     <li><a href="#">Watch the goodnes</a></li>
+                     <li><a href="#">My kush</a></li>
+                     <li><a href="#">Categories</a></li>
+                     <li><%= link_to 'Log out', logout_path, method: :delete %></li>
+                     <li role="separator" class="divider"></li>
+                     <li><a href="#">Add a video kush!</a></li>
+                  </ul>
+
+                </li>
+
+                <li class="hidden-sm hidden-md hidden-lg"><a href="#">Watch the goodnes</a></li>
+                <li class="hidden-sm hidden-md hidden-lg"><a href="#">My kush</a></li>
+                <li class="hidden-sm hidden-md hidden-lg"><a href="#">Categories</a></li>
+                <li class="hidden-sm hidden-md hidden-lg"><%= link_to 'Log out', logout_path, method: :delete %></li>
+                <li class="hidden-sm hidden-md hidden-lg"role="separator" class="divider"></li>
+                <li class="hidden-sm hidden-md hidden-lg"><a href="#">Add a video kush!</a></li>
+
+
+              </ul>
+
+
+
+
+            <% end %>
+
+            <ul class="nav navbar-nav">
+
             </ul>
-          <% end %>
-
-          <ul class="nav navbar-nav">
-
-          </ul>
+          </div>
         </div>
       </div>
     </nav>

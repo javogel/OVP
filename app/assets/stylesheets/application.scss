@@ -19,7 +19,7 @@
  @import 'bootstrap/theme';
 
  .logo-header {
-   max-width: 180px;
+   max-width: 140px;
    padding: 15px;
  }
 
@@ -57,3 +57,13 @@
    border-style: solid;
 
  }
+
+
+ .centerDropdown {
+    left: auto !important;
+    right: -25% !important;
+}
+.centerDropdown:after {
+   left: auto !important;
+   right: 45% !important;
+}
