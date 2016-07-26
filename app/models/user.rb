@@ -21,7 +21,11 @@ class User < ApplicationRecord
 
 
   def get_next_video
+    begin
       @video = get_random_video
+    rescue
+      Video.last
+    end
   end
 
   def get_random_video
