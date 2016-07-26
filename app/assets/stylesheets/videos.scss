@@ -20,7 +20,7 @@
 
 
 
-@media only screen and (max-width:700px){
+@media only screen and (max-width:769px){
 body::before{ content: "Media query (width < 700px) fired"; font-weight: bold; display: block; text-align: center; background: rgba(255,255,0, 0.9);
  position: absolute; top: 0; left: 0; right: 0; z-index: 99;}
 

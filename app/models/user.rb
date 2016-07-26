@@ -26,7 +26,7 @@ class User < ApplicationRecord
     begin
       @video = get_random_video
     rescue
-      Video.last
+      self.get_next_video
     end
   end
 

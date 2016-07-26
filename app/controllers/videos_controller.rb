@@ -7,11 +7,8 @@ class VideosController < ApplicationController
   end
 
   def create
-    @video_url = params[:video][:url]
-    video = Yt::Video.new url: @video_url
-    @embed_code = video.embed_html
-    @name = video.title
-    @video = Video.new(name: @name, url: @video_url, video_embed: @embed_code, user: current_user)
+    @video = Video.create_video(params[:video][:url], current_user)
+
 
     respond_to do |format|
       if @video.save

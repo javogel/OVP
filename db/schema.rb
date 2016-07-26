@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160726101925) do
+ActiveRecord::Schema.define(version: 20160726172106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "provider",   null: false
@@ -30,6 +37,16 @@ ActiveRecord::Schema.define(version: 20160726101925) do
     t.index ["uid"], name: "index_users_on_uid", using: :btree
   end
 
+  create_table "video_categories", id: false, force: :cascade do |t|
+    t.integer  "video_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["category_id"], name: "index_video_categories_on_category_id", using: :btree
+    t.index ["video_id", "category_id"], name: "index_video_categories_on_video_id_and_category_id", unique: true, using: :btree
+    t.index ["video_id"], name: "index_video_categories_on_video_id", using: :btree
+  end
+
   create_table "videos", force: :cascade do |t|
     t.string   "name"
     t.integer  "user_id"
@@ -42,5 +59,7 @@ ActiveRecord::Schema.define(version: 20160726101925) do
     t.index ["user_id"], name: "index_videos_on_user_id", using: :btree
   end
 
+  add_foreign_key "video_categories", "categories"
+  add_foreign_key "video_categories", "videos"
   add_foreign_key "videos", "users"
 end
