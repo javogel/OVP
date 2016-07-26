@@ -19,4 +19,13 @@ class User < ApplicationRecord
     end
   end
 
+
+  def get_next_video
+      @video = get_random_video
+  end
+
+  def get_random_video
+    Video.find(1 + rand(Video.all.count))
+  end
+
 end

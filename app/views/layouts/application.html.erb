@@ -25,15 +25,17 @@
 
               <li class="dropdown">
                 <a id="dLabel" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                  <%= image_tag current_user.image_url, alt: current_user.first_name %>
+                  <%= image_tag current_user.image_url, alt: current_user.first_name, :class => "user-profile-pic"  %>
                 </a>
 
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                   <li><a href="#">Action</a></li>
-                   <li><a href="#">Another action</a></li>
-                   <li><a href="#">Something else here</a></li>
+                   <li><a href="#">Watch the goodnes</a></li>
+                   <li><a href="#">My kush</a></li>
+
+                   <li><a href="#">Categories</a></li>
                    <li role="separator" class="divider"></li>
-                   <li><a href="#">Separated link</a></li>
+
+                   <li><a href="#">Add a video kush!</a></li>
                 </ul>
 
             </li>

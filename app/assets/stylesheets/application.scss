@@ -43,5 +43,17 @@
 
  .dropdown #dLabel{
    padding:0px;
+   width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 50%;
+
+ }
+
+ .dropdown .user-profile-pic:hover, .user-profile-pic:active {
+   background-image: none;
+   border-color: #47457e;
+   border-width: 1px;
+   border-style: solid;
 
  }

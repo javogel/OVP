@@ -1,3 +1,7 @@
 <h1>Hi, there <%= current_user.first_name %></h1>
 <p>Welcome to a new video viewing experience.
 This is the dashboard, which will shortly be displaying amazing videos.</p>
+
+<div class="video-main">
+  <%= @video.video_embed.html_safe %>
+</div>
