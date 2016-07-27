@@ -7,7 +7,7 @@ gem 'omniauth-facebook'
 gem 'bootstrap-sass'
 gem 'figaro'
 gem 'yt', '~> 0.25.5'
-gem "paperclip", "~> 5.0.0"
+gem 'paperclip', '~> 5.0.0'
 gem 'aws-sdk', '~> 2.3'
 
 
