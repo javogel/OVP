@@ -36,4 +36,17 @@ class User < ApplicationRecord
     Video.find(1 + rand(Video.all.count))
   end
 
+
+  def add_category_to_user(category_id)
+    self.categories.push(Category.find(category_id))
+  end
+
+  def get_category_ids
+    category_array = []
+    self.categories.each do |category|
+      category_array << category.id
+    end
+    category_array
+  end
+
 end
