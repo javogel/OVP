@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160727130719) do
+ActiveRecord::Schema.define(version: 20160727162834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 20160727130719) do
     t.string   "category_image_content_type"
     t.integer  "category_image_file_size"
     t.datetime "category_image_updated_at"
+  end
+
+  create_table "user_categories", id: false, force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["category_id"], name: "index_user_categories_on_category_id", using: :btree
+    t.index ["user_id", "category_id"], name: "index_user_categories_on_user_id_and_category_id", unique: true, using: :btree
+    t.index ["user_id"], name: "index_user_categories_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -63,6 +73,8 @@ ActiveRecord::Schema.define(version: 20160727130719) do
     t.index ["user_id"], name: "index_videos_on_user_id", using: :btree
   end
 
+  add_foreign_key "user_categories", "categories"
+  add_foreign_key "user_categories", "users"
   add_foreign_key "video_categories", "categories"
   add_foreign_key "video_categories", "videos"
   add_foreign_key "videos", "users"

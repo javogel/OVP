@@ -98,9 +98,9 @@
             </div>
             <div class="modal-body">
 
-              <select multiple="multiple" class="image-picker category-image-picker">
+              <select multiple="multiple" class="image-picker category-image-picker show-html">
                 <%= @categories.each do |category|%>
-                <option data-img-src="<%= category.category_image.url %>" value="<%= category.id %>"><%= category.name %></option>
+                <option data-img-src="<%= category.category_image.url %>" value="<%= category.id %>" <%= if current_user.categories.include? category; "selected"; end %>> <%= category.name %></option>
                 <% end %>
 
 
