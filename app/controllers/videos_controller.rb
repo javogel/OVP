@@ -1,22 +1,22 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   def new
     @video = Video.new
   end
 
   def create
-    @video = Video.create_video(params[:video][:url], current_user)
+    @video = Video.create_video(params[:video][:url], current_user.id)
 
 
     respond_to do |format|
-      if @video.save
+      if @video.is_a? String
+        format.html { redirect_to new_video_path, notice: @video }
+        format.json { render json: @video.errors, status: :unprocessable_entity }
+      elsif @video.save
         format.html { redirect_to @video, notice: 'Video was successfully created.' }
         format.json { render :show, status: :created, location: @video }
-      else
-        format.html { render :new }
-        format.json { render json: @video.errors, status: :unprocessable_entity }
       end
     end
   end
