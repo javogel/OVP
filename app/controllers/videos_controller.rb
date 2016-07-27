@@ -7,6 +7,7 @@ class VideosController < ApplicationController
   end
 
   def create
+  
     @video = Video.create_video(params[:video][:url], current_user.id)
 
 
@@ -15,6 +16,8 @@ class VideosController < ApplicationController
         format.html { redirect_to new_video_path, notice: @video }
         format.json { render json: @video.errors, status: :unprocessable_entity }
       elsif @video.save
+        category = Category.find(params[:categories])
+        @video.categories.push(category)
         format.html { redirect_to @video, notice: 'Video was successfully created.' }
         format.json { render :show, status: :created, location: @video }
       end
