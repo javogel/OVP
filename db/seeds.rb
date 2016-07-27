@@ -10,4 +10,4 @@
 
 
 
-Video.create_video('https://www.youtube.com/watch?v=j2oXFWKpJiA'')
+Video.create_video('https://www.youtube.com/watch?v=j2oXFWKpJiA', 1)

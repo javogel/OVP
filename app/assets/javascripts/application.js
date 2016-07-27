@@ -15,4 +15,32 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require jquery.fitvids.js
+//= require image-picker.js
 //= require_tree .
+
+
+
+$( document ).ready(function() {
+  $(".category-image-picker").imagepicker(
+
+
+  );
+});
+
+
+var selectUserCategories = function(){
+console.log("hello")
+$.ajax({
+
+    url : 'user/categories',
+    type : 'GET',
+    dataType:'json',
+    success : function(data) {
+        alert('Data: '+data);
+    },
+    error : function(request,error)
+    {
+        alert("Request: "+JSON.stringify(request));
+    }
+});
+}

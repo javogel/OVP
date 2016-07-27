@@ -4,6 +4,15 @@
 <%= form_tag("/videos", method: "post") do %>
   <%= label_tag(:url, "Video URL") %>
   <%= text_field(:video, :url, size: 20) %>
+
+
+
+
+  <%= select_tag 'categories', options_for_select(@categories.collect{ |u| [u.name, u.id] }) %>
+
+
+
+
   <%= submit_tag("Add") %>
 <% end %>
 

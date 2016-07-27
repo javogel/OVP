@@ -7,6 +7,7 @@ gem 'omniauth-facebook'
 gem 'bootstrap-sass'
 gem 'figaro'
 gem 'yt', '~> 0.25.5'
+gem "paperclip", "~> 5.0.0"
 
 
 group :development, :test do

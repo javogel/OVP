@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # get 'videos/:id', to: "videos#show", as: 'video'
   # get '/videos', to: "videos#index"
   resources :videos
+  resources :categories
 
   root to: 'pages#home'
 

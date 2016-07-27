@@ -44,7 +44,7 @@
                   <ul class="dropdown-menu centerDropdown" aria-labelledby="dropdownMenu1">
                      <li><a href="#">Watch the goodnes</a></li>
                      <li><a href="#">My kush</a></li>
-                     <li><a href="#">Categories</a></li>
+                     <li><a href="#" data-toggle="modal" data-target="#myModal">Categories</a></li>
                      <li><%= link_to 'Log out', logout_path, method: :delete %></li>
                      <li role="separator" class="divider"></li>
                      <li><a href="#">Add a video kush!</a></li>
@@ -84,6 +84,36 @@
 
       <%= yield %>
     </div>
+
+
+
+
+      <!-- Categories Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Select your categories</h4>
+            </div>
+            <div class="modal-body">
+
+              <select multiple="multiple" class="image-picker category-image-picker">
+                <%= @categories.each do |category|%>
+                <option data-img-src="<%= category.category_image.url %>" value="<%= category.id %>"><%= category.name %></option>
+                <% end %>
+
+
+              </select>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
   </body>
