@@ -21,26 +21,49 @@
 
 
 $( document ).ready(function() {
-  $(".category-image-picker").imagepicker(
+    $(".category-image-picker").imagepicker(
 
 
-  );
+    );
+
+    $('#category-button').on('click', function (e) {
+      sendUserCategoriesUpdate();
+      $('#myModal').modal('hide');
+    });
+
 });
 
 
-var selectUserCategories = function(){
-console.log("hello")
-$.ajax({
+var sendUserCategoriesUpdate = function(){
 
-    url : 'user/categories',
-    type : 'GET',
-    dataType:'json',
-    success : function(data) {
-        alert('Data: '+data);
-    },
-    error : function(request,error)
-    {
-        alert("Request: "+JSON.stringify(request));
-    }
-});
-}
+    var selected_categories = $('#category-select').val();
+
+    $.ajax({
+       type: "POST",
+       url: "/user/categories",
+       data: { 'categories': selected_categories},
+       success: function(data){
+         alert(data.id)
+         return false
+       },
+       error:function(data){
+         return false
+       }
+     })
+
+
+    //
+    // $.ajax({
+    //
+    //     url : 'user/categories',
+    //     type : 'GET',
+    //     dataType:'json',
+    //     success : function(data) {
+    //         alert('Data: '+data);
+    //     },
+    //     error : function(request,error)
+    //     {
+    //         alert("Request: "+JSON.stringify(request));
+    //     }
+    // });
+};

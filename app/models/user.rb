@@ -37,16 +37,34 @@ class User < ApplicationRecord
   end
 
 
-  def add_category_to_user(category_id)
+  def add_category(category_id)
     self.categories.push(Category.find(category_id))
   end
 
+  def remove_category(category_id)
+    self.categories.delete(Category.find(category_id))
+  end
+
   def get_category_ids
-    category_array = []
-    self.categories.each do |category|
-      category_array << category.id
-    end
-    category_array
+    category_array = self.categories.map {|category| category.id}
+  end
+
+  def category_update(new_categories_array)
+    current_categories = self.get_category_ids
+    new_categories = new_categories_array
+    to_remove = current_categories - new_categories
+    to_add = new_categories - current_categories
+
+    to_remove.each { |id| self.remove_category(id) }
+
+    to_add.each { |id| self.add_category(id) }
+
+
+    # binding.pry
+    # puts "add"
+    # puts to_add
+    # puts "remove"
+    # puts to_remove
   end
 
 end

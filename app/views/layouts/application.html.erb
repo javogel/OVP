@@ -100,7 +100,7 @@
               </div>
               <div class="modal-body">
 
-                <select multiple="multiple" class="image-picker category-image-picker show-html">
+                <select multiple="multiple" id="category-select" class="image-picker category-image-picker show-html">
 
                   <%= @categories.each do |category|%>
                   <option data-img-src="<%= category.category_image.url %>" value="<%= category.id %>" <%= if current_user.categories.include? category; "selected"; end %>> <%= category.name %></option>
@@ -111,8 +111,8 @@
 
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                <button type="button" id="category-button" class="btn btn-primary">Save categories</button>
               </div>
             </div>
           </div>

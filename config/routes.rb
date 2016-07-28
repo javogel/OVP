@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   get '/login', to: 'pages#login', as: 'login'
   get '/auth/:provider/callback', to: 'sessions#create'
+  post '/user/categories', to: 'users#update_categories'
   delete '/logout', to: 'sessions#destroy'
 
 
