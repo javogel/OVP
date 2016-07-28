@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery.turbolinks
 //= require bootstrap-sprockets
 //= require jquery.fitvids.js
 //= require image-picker.js
@@ -20,11 +21,16 @@
 
 
 
+
 $( document ).ready(function() {
-    $(".category-image-picker").imagepicker(
+
+    $(".category-image-picker").imagepicker({
 
 
-    );
+      initialized: activateModalButton
+
+
+    });
 
     $('#category-button').on('click', function (e) {
       sendUserCategoriesUpdate();
@@ -32,6 +38,13 @@ $( document ).ready(function() {
     });
 
 });
+
+
+var activateModalButton = function(){
+
+  $('.category-modal-nav').removeClass('button-disable');
+
+}
 
 
 var sendUserCategoriesUpdate = function(){

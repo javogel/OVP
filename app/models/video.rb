@@ -5,17 +5,15 @@ class Video < ApplicationRecord
   validates :youtube_id, presence: true
   validates :youtube_id, uniqueness: true
 
-
-  def self.create_video(video_url, user_id)
+  def self.build_from_youtube(url)
     begin
-      video = Yt::Video.new url: video_url
-      embed_code = video.embed_html
-      name = video.title
-      id = video.id
-      Video.create(name: name, url: video_url, video_embed: embed_code, user_id: user_id, youtube_id: id)
-    rescue
-      #"Youtube API Error: #{e.message}"
-      "We had a problem processing the link. Please make sure it is correct and try again."
+      youtube_video = Yt::Video.new url: url
+
+      Video.new video_embed: youtube_video.embed_html,
+        name: youtube_video.title,
+        url: url,
+        youtube_id: youtube_video.id
+    rescue Yt::Errors::RequestError
     end
   end
 end

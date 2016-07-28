@@ -67,3 +67,7 @@
    left: auto !important;
    right: 45% !important;
 }
+
+ .button-disable {
+   pointer-events: none;
+ }

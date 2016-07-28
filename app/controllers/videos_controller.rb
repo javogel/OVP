@@ -7,19 +7,18 @@ class VideosController < ApplicationController
   end
 
   def create
-  
-    @video = Video.create_video(params[:video][:url], current_user.id)
-
+    if @video = Video.build_from_youtube(params[:video][:url])
+      @video.user = current_user
+      @video.categories << Category.find(params[:categories])
+    end
 
     respond_to do |format|
-      if @video.is_a? String
-        format.html { redirect_to new_video_path, notice: @video }
-        format.json { render json: @video.errors, status: :unprocessable_entity }
-      elsif @video.save
-        category = Category.find(params[:categories])
-        @video.categories.push(category)
+      if @video.present? && @video.save
         format.html { redirect_to @video, notice: 'Video was successfully created.' }
         format.json { render :show, status: :created, location: @video }
+      else
+        format.html { redirect_to new_video_path, notice: @video }
+        format.json { render json: @video.errors, status: :unprocessable_entity }
       end
     end
   end

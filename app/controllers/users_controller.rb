@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
   def update_categories
-    current_user.category_update(params[:categories])
+    user.categories = Category.where(id: params[:categories])
   end
 end

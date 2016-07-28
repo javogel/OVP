@@ -25,15 +25,8 @@ class User < ApplicationRecord
 
 
   def get_next_video
-    begin
-      @video = get_random_video
-    rescue
-      self.get_next_video
-    end
-  end
-
-  def get_random_video
-    Video.find(1 + rand(Video.all.count))
+    random_video_id = Video.pluck(:id).sample
+    Video.find(random_video_id)
   end
 
 
@@ -49,22 +42,5 @@ class User < ApplicationRecord
     category_array = self.categories.map {|category| category.id}
   end
 
-  def category_update(new_categories_array)
-    current_categories = self.get_category_ids
-    new_categories = new_categories_array
-    to_remove = current_categories - new_categories
-    to_add = new_categories - current_categories
-
-    to_remove.each { |id| self.remove_category(id) }
-
-    to_add.each { |id| self.add_category(id) }
-
-
-    # binding.pry
-    # puts "add"
-    # puts to_add
-    # puts "remove"
-    # puts to_remove
-  end
 
 end
