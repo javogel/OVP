@@ -12,11 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require jquery.turbolinks
 //= require bootstrap-sprockets
 //= require jquery.fitvids.js
 //= require image-picker.js
+//= require turbolinks
 //= require_tree .
 
 
