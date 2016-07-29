@@ -9,6 +9,6 @@ class UsersController < ApplicationController
   def next_video
     @video = current_user.get_next_video
 
-    render "videos/show"
+    redirect_to controller: 'videos', action: 'show', id: @video.id
   end
 end

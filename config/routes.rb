@@ -13,15 +13,10 @@ Rails.application.routes.draw do
   resources :reactions
 
   root to: 'pages#home'
-
   get '/login', to: 'pages#login', as: 'login'
-
   get '/auth/:provider/callback', to: 'sessions#create'
-
   get '/user/next', to: 'users#next_video', as: 'next_video'
-
   post '/user/categories', to: 'users#update_categories'
-
   delete '/logout', to: 'sessions#destroy'
 
 

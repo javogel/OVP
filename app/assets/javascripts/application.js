@@ -57,7 +57,7 @@ var sendUserCategoriesUpdate = function(){
        url: "/user/categories",
        data: { 'categories': selected_categories},
        success: function(data){
-         alert(data.id)
+        //  alert(data.id)
          return false
        },
        error:function(data){
