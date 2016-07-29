@@ -11,12 +11,12 @@
 // about supported directives.
 //
 //= require jquery
+
 //= require jquery_ujs
-//= require jquery.turbolinks
 //= require bootstrap-sprockets
 //= require jquery.fitvids.js
 //= require image-picker.js
-//= require turbolinks
+
 //= require_tree .
 
 
@@ -26,10 +26,11 @@ $( document ).ready(function() {
 
     $(".category-image-picker").imagepicker({
 
-
       initialized: activateModalButton
 
+    });
 
+    $(".category-video-image-picker").imagepicker({
     });
 
     $('#category-button').on('click', function (e) {
@@ -65,18 +66,4 @@ var sendUserCategoriesUpdate = function(){
      })
 
 
-    //
-    // $.ajax({
-    //
-    //     url : 'user/categories',
-    //     type : 'GET',
-    //     dataType:'json',
-    //     success : function(data) {
-    //         alert('Data: '+data);
-    //     },
-    //     error : function(request,error)
-    //     {
-    //         alert("Request: "+JSON.stringify(request));
-    //     }
-    // });
 };

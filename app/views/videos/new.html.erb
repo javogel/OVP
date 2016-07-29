@@ -8,9 +8,17 @@
 
 
 
-  <%= select_tag 'categories', options_for_select(@categories.collect{ |u| [u.name, u.id] }) %>
+  <!-- <%= select_tag 'categories', options_for_select(@categories.collect{ |u| [u.name, u.id] }) %> -->
 
 
+  <select multiple="multiple" id="category-video-image-picker" name="categories[]" class="image-picker category-image-picker show-html">
+
+    <%= @categories.each do |category|%>
+    <option data-img-src="<%= category.category_image.url %>" value="<%= category.id %>"> <%= category.name %></option>
+    <% end %>
+
+
+  </select>
 
 
   <%= submit_tag("Add") %>

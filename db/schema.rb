@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160727162834) do
+ActiveRecord::Schema.define(version: 20160729130242) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,17 @@ ActiveRecord::Schema.define(version: 20160727162834) do
     t.string   "category_image_content_type"
     t.integer  "category_image_file_size"
     t.datetime "category_image_updated_at"
+  end
+
+  create_table "reactions", force: :cascade do |t|
+    t.string   "rating"
+    t.string   "why_watch"
+    t.integer  "user_id"
+    t.integer  "video_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_reactions_on_user_id", using: :btree
+    t.index ["video_id"], name: "index_reactions_on_video_id", using: :btree
   end
 
   create_table "user_categories", id: false, force: :cascade do |t|
@@ -73,6 +84,8 @@ ActiveRecord::Schema.define(version: 20160727162834) do
     t.index ["user_id"], name: "index_videos_on_user_id", using: :btree
   end
 
+  add_foreign_key "reactions", "users"
+  add_foreign_key "reactions", "videos"
   add_foreign_key "user_categories", "categories"
   add_foreign_key "user_categories", "users"
   add_foreign_key "video_categories", "categories"

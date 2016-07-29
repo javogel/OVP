@@ -1,17 +1,78 @@
-<p>
-  <strong>Name:</strong>
-  <%= @video.name %>
-</p>
 
-<p>
-  <strong>Url:</strong>
-  <%= @video.url %>
-</p>
 
-<p>
-  <strong>Watch:</strong>
-  <%= @video.video_embed.html_safe %>
-</p>
 
-<%= link_to 'Edit', edit_video_path(@video) %> |
-<%= link_to 'Back', videos_path %>
+
+<div class="container" id="video-show-div">
+
+  <div class = "video-title-container">
+    <h2 class="video-name"><%= @video.name %></h2>
+    <h4 class="recommended">Recommended because you follow: </h4>
+      <% @video.categories.each do |category|%>
+        <p class="video-categories"><%= category.name %></p>
+      <% end%>
+  </div>
+
+  <div class="video-container">
+    <div class="video-main">
+       <div id="player"></div>
+    </div>
+  </div>
+
+
+    <div class="reactions-container">
+      <i class="material-icons">thumb_up</i>
+      <i class="material-icons">thumb_down</i>
+    </div>
+
+    <div class="recommendations-container">
+      <h5> <%= @video.user.first_name %> recommended this video </h5>
+
+
+      <ul>
+        <% @video.reactions.each do |reaction| %>
+        <li><%= reaction.user.first_name %>: <%= reaction.rating %> watch because
+            <%= reaction.why_watch %>
+
+        </li>
+        <% end %>
+      </ul>
+
+
+
+      <%= form_tag("/reactions/#{@video.id.to_s}/create", method: "post") do %>
+
+
+      <h5> Add your rating! </h5>
+
+        <div class="field">
+          What is your rating?
+          <%= text_field_tag(:rating) %>
+        </div>
+
+
+        <div class="field">
+          Why should we watch this?
+          <%= text_field_tag(:why_watch) %>
+        </div>
+
+
+        <div class="actions">
+          <%= submit_tag("Add") %>
+        </div>
+      <% end %>
+
+
+
+
+
+    </div>
+
+
+
+
+
+  <%= render :partial => "video_show_view_js" %>
+
+
+
+</div>

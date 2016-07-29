@@ -1,5 +1,6 @@
 class Video < ApplicationRecord
   belongs_to :user
+  has_many :reactions
   has_many :video_categories
   has_many :categories, :through => :video_categories
   validates :youtube_id, presence: true

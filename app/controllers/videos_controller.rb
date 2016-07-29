@@ -4,12 +4,13 @@ class VideosController < ApplicationController
 
   def new
     @video = Video.new
+    @categories = Category.all
   end
 
   def create
     if @video = Video.build_from_youtube(params[:video][:url])
       @video.user = current_user
-      @video.categories << Category.find(params[:categories])
+      @video.categories = Category.where(id: params[:categories])
     end
 
     respond_to do |format|
@@ -39,6 +40,7 @@ class VideosController < ApplicationController
   end
 
   def show
+    @reaction = Reaction.new
   end
 
   def index
