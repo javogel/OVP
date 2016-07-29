@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback', to: 'sessions#create'
 
+  get '/user/next', to: 'users#next_video', as: 'next_video'
+
   post '/user/categories', to: 'users#update_categories'
 
   delete '/logout', to: 'sessions#destroy'
