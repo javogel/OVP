@@ -9,7 +9,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet">
   </head>
 
   <body>
@@ -17,7 +17,7 @@
     <nav class="navbar navbar-default">
         <!-- container was here -->
       <div class="col-sm-3">
-        <div class="navbar-header">
+        <div class="navbar-header center-nav-contents nav-actions">
 
 
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
@@ -27,23 +27,28 @@
             <span class="icon-bar"></span>
           </button>
 
-        <%= link_to image_tag('qush-logo-light2.png', alt: "Logo", :class => "logo-header"), root_path %>
+
+
+          <i class="material-icons">view_module</i>
+          <i class="material-icons">play_arrow</i>
+          <%= link_to next_video_path do %>
+          <i class="material-icons">gesture</i>
+          <% end %>
+          <%= link_to new_video_path do %>
+          <i class="material-icons">add</i>
+          <% end %>
+
+
         </div>
       </div>
 
 
-        <div class="col-sm-6 nav-actions">
+        <div class="col-sm-6 center-nav-content">
 
+            <%= link_to image_tag('qush-logo-light2.png', alt: "Logo", :class => "logo-header"), root_path %>
             <!-- <span class="glyphicon glyphicon-plus nav-action-buttons" aria-hidden="true"></span> -->
 
-            <i class="material-icons">view_module</i>
-            <i class="material-icons">play_arrow</i>
-            <%= link_to next_video_path do %>
-            <i class="material-icons">gesture</i>
-            <% end %>
-            <%= link_to new_video_path do %>
-            <i class="material-icons">add</i>
-            <% end %>
+
             <!-- <button type="button" class="btn btn-primary btn-lg outline">Add video</button> -->
         </div>
 

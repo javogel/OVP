@@ -6,10 +6,14 @@
 
   <div class = "video-title-container">
     <h2 class="video-name"><%= @video.name %></h2>
-    <h4 class="recommended">Recommended because you follow: </h4>
+    <!-- <p class="recommended">Recommended because you follow: </p> -->
+      <ul class="video-categories-list">
       <% @video.categories.each do |category|%>
-        <p class="video-categories"><%= category.name %></p>
+        <li class="video-list-item">
+          <span class="video-categories"><%= category.name %></span>
+        </li>
       <% end%>
+      </ul>
   </div>
 
   <div class="video-container">

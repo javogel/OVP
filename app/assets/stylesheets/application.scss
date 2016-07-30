@@ -18,6 +18,16 @@
  @import "bootstrap";
  @import 'bootstrap/theme';
 
+h1, h2, h3, h4 {
+  font-family: 'Roboto', serif;
+}
+
+body, p {
+  font-family: 'Roboto', serif;
+}
+
+
+
  .logo-header {
    max-width: 150px;
    padding: 10px;
@@ -75,7 +85,7 @@
    pointer-events: none;
  }
 
-  .nav-actions {
+  .center-nav-content {
         text-align: center;
   }
 
