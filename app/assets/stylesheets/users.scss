@@ -33,6 +33,11 @@
   height: 100%;
   width: 100%;
 }
+
+.card-header__avatar img{
+  max-width: 200px;
+  max-height: 200px; 
+}
 .card-header__follow {
   position: absolute;
   top: 20px;
@@ -92,7 +97,7 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   background: #F3F3F3;
-  padding: 15px 40px;
+  padding: 10px 10px;
   color: #333333;
   font-size: 14px;
   font-weight: 600;
