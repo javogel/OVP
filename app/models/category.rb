@@ -7,7 +7,7 @@ class Category < ApplicationRecord
   validates_attachment_content_type :category_image, content_type: /\Aimage\/.*\Z/
   validates :name, presence: true
   validates :category_image, presence: true
-  # attr_accessor :category_image
+
 
 
 end

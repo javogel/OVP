@@ -14,12 +14,20 @@
 <div class="user-cards">
   <% @users.each do |user|%>
 
-      <div class="card">
+      <div class="card" id=<%= user.id.to_s %>>
         <!-- Header -->
         <div class="card-header">
           <div class="card-header__avatar">
             <img src=<%= user.image_url + "?type=large" %> >
-          </div><a href="#" class="card-header__follow">Follow</a>
+          </div>
+          <div class="follow-button">
+
+              <% if current_user.following.pluck(:user_id).include? user.id %>
+                <a href="#" class="card-header__follow" data-id=<%= user.id.to_s %>>Unfollow</a>
+              <% else %>
+                <a href="#" class="card-header__follow" data-id=<%= user.id.to_s %>>Follow</a>
+              <% end %>
+            </div>
         </div>
         <!-- Content-->
         <div class="card-content">
@@ -28,13 +36,13 @@
         </div>
         <!-- Footer-->
         <div class="card-footer">
-          <div class="card-footer__pens"> <span>231</span>
+          <div class="card-footer__videos"> <span><%= user.videos.count %></span>
             <div class="label">Videos</div>
           </div>
-          <div class="card-footer__followers"> <span>0</span>
+          <div class="card-footer__followers"> <span><%= user.followers.count %></span>
             <div class="label">Followers</div>
           </div>
-          <div class="card-footer__following"> <span>0</span>
+          <div class="card-footer__following"> <span><%= user.following.count %></span>
             <div class="label">Following</div>
           </div>
         </div>
