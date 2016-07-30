@@ -1,7 +1,7 @@
 
 
 
-<!-- 
+<!--
 
 <select multiple="multiple" id="follow-select" class="image-picker user-image-picker show-html">
   <%= @users.each do |user|%>
@@ -11,34 +11,36 @@
 </select> -->
 
 
+<div class="user-cards">
+  <% @users.each do |user|%>
 
-<% @users.each do |user|%>
-  <div class="user-cards">
-    <div class="card">
-      <!-- Header -->
-      <div class="card-header">
-        <div class="card-header__avatar">
-          <img src=<%= user.image_url + "?type=large" %> >
-        </div><a href="#" class="card-header__follow">Follow</a>
-      </div>
-      <!-- Content-->
-      <div class="card-content">
-        <div class="card-content__username"><%= user.first_name + " " + user.last_name %></div>
-        <!-- <div class="card-content__bio">Demo or it didn't happen.</div> -->
-      </div>
-      <!-- Footer-->
-      <div class="card-footer">
-        <div class="card-footer__pens"> <span>231</span>
-          <div class="label">Videos</div>
+      <div class="card">
+        <!-- Header -->
+        <div class="card-header">
+          <div class="card-header__avatar">
+            <img src=<%= user.image_url + "?type=large" %> >
+          </div><a href="#" class="card-header__follow">Follow</a>
         </div>
-        <div class="card-footer__followers"> <span>0</span>
-          <div class="label">Followers</div>
+        <!-- Content-->
+        <div class="card-content">
+          <div class="card-content__username"><%= user.first_name + " " + user.last_name %></div>
+          <!-- <div class="card-content__bio">Demo or it didn't happen.</div> -->
         </div>
-        <div class="card-footer__following"> <span>0</span>
-          <div class="label">Following</div>
+        <!-- Footer-->
+        <div class="card-footer">
+          <div class="card-footer__pens"> <span>231</span>
+            <div class="label">Videos</div>
+          </div>
+          <div class="card-footer__followers"> <span>0</span>
+            <div class="label">Followers</div>
+          </div>
+          <div class="card-footer__following"> <span>0</span>
+            <div class="label">Following</div>
+          </div>
         </div>
+
       </div>
 
-    </div>
-  </div>
-<% end %>
+  <% end %>
+
+</div>
