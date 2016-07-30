@@ -11,4 +11,10 @@ class UsersController < ApplicationController
 
     redirect_to controller: 'videos', action: 'show', id: @video.id
   end
+
+
+
+  def follow
+    @users = User.all
+  end
 end

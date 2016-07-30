@@ -25,10 +25,14 @@
 $( document ).ready(function() {
 
     $(".category-image-picker").imagepicker({
-
       initialized: activateModalButton
-
     });
+
+    if ($(".user-image-picker").length) {
+      $(".user-image-picker").imagepicker({
+        show_label  : true
+      });
+    }
 
     $(".category-video-image-picker").imagepicker({
     });

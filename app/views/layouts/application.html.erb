@@ -118,35 +118,7 @@
 
 
 
-      <!-- Categories Modal -->
-      <% if current_user %>
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Select your categories</h4>
-              </div>
-              <div class="modal-body">
-
-                <select multiple="multiple" id="category-select" class="image-picker category-image-picker show-html">
-
-                  <%= @categories.each do |category|%>
-                  <option data-img-src="<%= category.category_image.url %>" value="<%= category.id %>" <%= if current_user.categories.include? category; "selected"; end %>> <%= category.name %></option>
-                  <% end %>
-
-
-                </select>
-
-              </div>
-              <div class="modal-footer">
-                <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-                <button type="button" id="category-button" class="btn btn-primary">Save categories</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end%>
+    <%= render :partial => "/layouts/categories_modal" %>
 
   </body>
 </html>

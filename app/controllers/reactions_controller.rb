@@ -1,4 +1,6 @@
 class ReactionsController < ApplicationController
+
+
   def create
 
     @reaction = Reaction.new(
@@ -8,7 +10,13 @@ class ReactionsController < ApplicationController
       why_watch: params[:why_watch]
     )
 
-    @reaction.save
+    if @reaction.user_id != Video.find(@reaction.video_id).user_id
+      @reaction.save
+    else
+       flash[:notice] = "Your recommendation was not processed correctly"
+    end
+
+
     redirect_to :back
   end
 
