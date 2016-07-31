@@ -100,6 +100,18 @@ body, p {
 }
 
 
+.categories-modal .thumbnail img{
+  max-width: 170px;
+}
+
+.modal-title {
+  text-align: center;
+}
+
+@media (min-width: 768px)
+.modal-dialog {
+    width: 730px;
+}
 
 
 
