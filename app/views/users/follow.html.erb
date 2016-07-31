@@ -13,7 +13,7 @@
 
 <div class="user-cards">
   <% @users.each do |user|%>
-
+      <% if user.id != current_user.id %>
       <div class="card" id=<%= user.id.to_s %>>
         <!-- Header -->
         <div class="card-header">
@@ -48,7 +48,7 @@
         </div>
 
       </div>
-
+    <% end %>
   <% end %>
 
 </div>

@@ -32,14 +32,15 @@
       <h5> <%= @video.user.first_name %> recommended this video </h5>
 
 
-      <ul>
+      <div class="past-reactions-container">
         <% @video.reactions.each do |reaction| %>
-        <li><%= reaction.user.first_name %>: <%= reaction.rating %> watch because
+        <div class="reaction"><img src=<%= User.find(reaction.user_id).image_url + "?type=small" %> >
+          <%= reaction.user.first_name %>: <%= reaction.rating %> watch because
             <%= reaction.why_watch %>
 
-        </li>
+        </div>
         <% end %>
-      </ul>
+      </div>
 
 
 

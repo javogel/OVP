@@ -10,6 +10,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
   </head>
 
   <body>
@@ -30,13 +31,9 @@
 
 
 
-          <a href="#" data-toggle="modal" data-target="#myModal" class ="category-modal-nav button-disable">
-            <i class="material-icons">view_module</i>
-          </a>
+          <a href="#" data-toggle="modal" data-target="#myModal" class ="category-modal-nav button-disable"><i class="material-icons">view_module</i></a>
           <i class="material-icons">play_arrow</i>
-          <%= link_to next_video_path do %>
-          <i class="material-icons">gesture</i>
-          <% end %>
+          <%= link_to next_video_path do %><i class="material-icons">gesture</i><% end %>
           <%= link_to new_video_path do %>
           <i class="material-icons">add</i>
           <% end %>

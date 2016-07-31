@@ -19,14 +19,20 @@
  @import 'bootstrap/theme';
 
 h1, h2, h3, h4 {
-  font-family: 'Roboto', serif;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
 }
 
 body, p {
-  font-family: 'Roboto', serif;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
 }
 
 
+a:focus {
+  outline: none;
+  text-decoration:none;  
+}
 
  .logo-header {
    max-width: 150px;
@@ -100,9 +106,21 @@ body, p {
 }
 
 
+.image_picker_selector .thumbnail{
+  border-radius: 0px;
+}
+
+
+.image_picker_selector .thumbnail img{
+  max-width: 190px;
+}
+
 .categories-modal .thumbnail img{
   max-width: 170px;
 }
+
+
+
 
 .modal-title {
   text-align: center;
@@ -149,8 +167,6 @@ body, p {
 }
 
 
-
-
 // i.material-icons:nth-of-type(1) {
 // 		background-color: #8897b9;
 // }
@@ -166,20 +182,27 @@ body, p {
 // }
 
 
-
-
-
-
-
-
-
-
-
-
 i.material-icons:hover {
     transform: scale(1.1);
 		// transform: rotate(360deg);
 		cursor: pointer;
 		box-shadow: none;
+}
+
+
+
+.qush-button {
+  background-color: white;
+  border-color: #47457e;
+  color: #47457e;
+  border-width: 2px;
+  padding: 5px 10px;
+}
+
+.qush-button:hover {
+  background-color: #47457e;
+  border-color: #47457e;
+  color: white
+  ;
 
 }
