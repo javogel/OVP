@@ -15,13 +15,16 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get '/login', to: 'pages#login', as: 'login'
   get '/auth/:provider/callback', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+
+  get '/user/profile/:user_id', to: 'users#show'
   get '/user/next', to: 'users#next_video', as: 'next_video'
   post '/user/categories', to: 'users#update_categories'
 
-  get '/user/follow/', to: 'users#follow'
-  post '/user/follow/', to: 'users#follow_add'
-  delete '/user/follow/', to: 'users#follow_remove'
-  delete '/logout', to: 'sessions#destroy'
+  get '/follow/', to: 'users#follow', as: 'follow'
+  post '/follow/', to: 'users#follow_add'
+  delete '/follow/', to: 'users#follow_remove'
+
 
 
 

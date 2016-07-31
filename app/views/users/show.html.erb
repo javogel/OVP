@@ -1,0 +1,23 @@
+
+
+
+<h2> <%= @user.first_name + " " + @user.last_name %> </h2>
+
+
+
+<h3> Videos Shared: </h3>
+
+<ul>
+  <% @user_shared_videos.each do |video| %>
+  <li><%= video.name %></li>
+  <% end %>
+</ul>
+
+
+<h3> Videos Recommended: </h3>
+
+<ul>
+  <% @user_recommended_videos.each do |video| %>
+  <li><%= video.name %></li>
+  <% end %>
+</ul>

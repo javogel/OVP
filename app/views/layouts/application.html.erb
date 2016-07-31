@@ -29,7 +29,10 @@
 
 
 
-          <i class="material-icons">view_module</i>
+
+          <a href="#" data-toggle="modal" data-target="#myModal" class ="category-modal-nav button-disable">
+            <i class="material-icons">view_module</i>
+          </a>
           <i class="material-icons">play_arrow</i>
           <%= link_to next_video_path do %>
           <i class="material-icons">gesture</i>
@@ -73,7 +76,8 @@
 
                   <ul class="dropdown-menu centerDropdown" aria-labelledby="dropdownMenu1">
                      <li><a href="#">Watch videos</a></li>
-                     <li><a href="#">My videos</a></li>
+                     <li><a href="/user/profile/<%= current_user.id%>">My profile</a></li>
+                     <li><%= link_to 'Following', follow_path, method: :get %></li>
                      <li><a href="#" data-toggle="modal" data-target="#myModal" class ="category-modal-nav button-disable">Categories</a></li>
                      <li><%= link_to 'Log out', logout_path, method: :delete %></li>
                      <li role="separator" class="divider"></li>
@@ -83,7 +87,8 @@
                 </li>
 
                 <li class="hidden-sm hidden-md hidden-lg"><a href="#">Watch videos</a></li>
-                <li class="hidden-sm hidden-md hidden-lg"><a href="#">My Videos</a></li>
+                <li class="hidden-sm hidden-md hidden-lg"><a href="/user/profile/<%= current_user.id%>">My profile</a></li>
+                <li class="hidden-sm hidden-md hidden-lg"><%= link_to 'Following', follow_path, method: :get %></li>
                 <li class="hidden-sm hidden-md hidden-lg"><a href="#" data-toggle="modal" data-target="#myModal" class ="category-modal-nav button-disable">Categories</a></li>
                 <li class="hidden-sm hidden-md hidden-lg"><%= link_to 'Log out', logout_path, method: :delete %></li>
                 <li class="hidden-sm hidden-md hidden-lg"role="separator" class="divider"></li>

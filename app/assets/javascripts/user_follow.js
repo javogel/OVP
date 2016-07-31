@@ -33,12 +33,12 @@ var sendUserFollow = function(data){
 
     $.ajax({
        type: request_type,
-       url: "/user/follow",
+       url: "/follow",
        data: { 'user_id_to_follow': user_id_to_follow},
        success: function(data){
          event.preventDefault();
          updateFollows(user_id_to_follow, change);
-         
+
        },
        error:function(data){
 
