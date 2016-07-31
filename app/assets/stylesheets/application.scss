@@ -108,9 +108,11 @@ body, p {
   text-align: center;
 }
 
-@media (min-width: 768px)
-.modal-dialog {
-    width: 730px;
+
+@media only screen and (min-width: 768px){
+  .modal-dialog {
+      width: 730px;
+  }
 }
 
 
