@@ -12,7 +12,7 @@
           <select multiple="multiple" id="category-select" class="image-picker category-image-picker show-html">
 
             <%= @categories.each do |category|%>
-            <option data-img-src="<%= category.category_image.url %>" value="<%= category.id %>" <%= if current_user.categories.include? category; "selected"; end %>> <%= category.name %></option>
+            <option data-img-src="<%= category.category_image.url(:medium) %>" value="<%= category.id %>" <%= if current_user.categories.include? category; "selected"; end %>> <%= category.name %></option>
             <% end %>
 
 
