@@ -33,7 +33,9 @@
 
 
       <div class="past-reactions-container">
+        
         <% @video.reactions.each do |reaction| %>
+
         <div class="reaction"><img src=<%= User.find(reaction.user_id).image_url + "?type=small" %> >
           <%= reaction.user.first_name %>: <%= reaction.rating %> watch because
             <%= reaction.why_watch %>

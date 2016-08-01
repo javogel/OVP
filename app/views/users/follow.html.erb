@@ -18,7 +18,9 @@
         <!-- Header -->
         <div class="card-header">
           <div class="card-header__avatar">
+            <% if user.image_url %>
             <img src=<%= user.image_url + "?type=large" %> >
+            <% end %>
           </div>
           <div class="follow-button">
 
