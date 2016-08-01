@@ -28,15 +28,16 @@ $( document ).ready(function() {
       initialized: activateModalButton
     });
 
-
-
     $(".category-video-image-picker").imagepicker({
     });
 
-    $('#category-button').on('click', function (e) {
+    $('#category-button').on('click', function () {
+      console.log("here!!!!");
       sendUserCategoriesUpdate();
       $('#myModal').modal('hide');
     });
+
+
 
 });
 
@@ -52,9 +53,10 @@ var sendUserCategoriesUpdate = function(){
 
     var selected_categories = $('#category-select').val();
 
+
     $.ajax({
-       type: "POST",
-       url: "/user/categories",
+       type: "PATCH",
+       url: "/users/categories/update_all",
        data: { 'categories': selected_categories},
        success: function(data){
         //  alert(data.id)

@@ -24,10 +24,11 @@
           </div>
           <div class="follow-button">
 
-              <% if current_user.following.pluck(:user_id).include? user.id %>
-                <a href="#" class="card-header__follow" data-id=<%= user.id.to_s %>>Unfollow</a>
+              <% if current_user.following.pluck(:user_id).include?(user.id) %>
+
+                <span class="card-header__follow" data-id=<%= user.id.to_s %> data-type='unfollow'>Unfollow</span>
               <% else %>
-                <a href="#" class="card-header__follow" data-id=<%= user.id.to_s %>>Follow</a>
+                <span class="card-header__follow follow" data-id=<%= user.id.to_s %> data-type='follow'>Follow</span>
               <% end %>
             </div>
         </div>

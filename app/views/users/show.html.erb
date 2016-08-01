@@ -1,15 +1,19 @@
 
 
-
+<div class="user-profile">
+  <img src=<%= @user.image_url + "?type=large" %> class="user-profile-main-pic">
 <h2> <%= @user.first_name + " " + @user.last_name %> </h2>
 
 
 
 <h3> Videos Shared: </h3>
 
-<ul>
+<ul class="thumbnail-list">
   <% @user_shared_videos.each do |video| %>
-  <li><%= video.name %></li>
+    <li class="thumbnail-list-item"><img src="http://img.youtube.com/vi/<%= video.youtube_id%>/mqdefault.jpg" class="video-thumbnail">
+      <div class="video-thumbnail-info"<h4 class="video-thumbnail-name"><%= video.name %></h4>
+      </div>
+    </li>
   <% end %>
 </ul>
 
@@ -21,3 +25,6 @@
   <li><%= video.name %></li>
   <% end %>
 </ul>
+
+
+</div>

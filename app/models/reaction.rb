@@ -4,4 +4,8 @@ class Reaction < ApplicationRecord
   validates :rating, presence: true
   validates_uniqueness_of :user_id, scope: [:video_id]
 
+  #scope :only_likes, -> { where(rating: 0) }
+  #scope :newest_first, -> { order('created_at DESC') }
+
+  #video.reactions.only_likes.newest_first
 end

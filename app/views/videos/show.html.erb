@@ -24,20 +24,22 @@
 
 
     <div class="reactions-container">
-      <i class="material-icons">thumb_up</i>
+      <a href="#" data-toggle="modal" data-target="#reactionModal" class ="category-modal-nav button-disable">
+      <i class="material-icons">thumb_up</i></a>
+      <span class="rating-count"> <%= @video.reactions.where("rating > ?", 0).count %></span>
       <i class="material-icons">thumb_down</i>
     </div>
 
     <div class="recommendations-container">
-      <h5> <%= @video.user.first_name %> recommended this video </h5>
+      <h5> <%= @video.user.name %> shared this video </h5>
 
 
       <div class="past-reactions-container">
-        
+
         <% @video.reactions.each do |reaction| %>
 
-        <div class="reaction"><img src=<%= User.find(reaction.user_id).image_url + "?type=small" %> >
-          <%= reaction.user.first_name %>: <%= reaction.rating %> watch because
+        <div class="reaction"><img src=<%= reaction.user.image_url + "?type=small" %> class="user-reaction-image" >
+          <%= reaction.user.name %>: <%= reaction.rating %> watch because
             <%= reaction.why_watch %>
 
         </div>
@@ -46,27 +48,7 @@
 
 
 
-      <%= form_tag("/reactions/#{@video.id.to_s}/create", method: "post") do %>
-
-
-      <h5> Add your rating! </h5>
-
-        <div class="field">
-          What is your rating?
-          <%= text_field_tag(:rating) %>
-        </div>
-
-
-        <div class="field">
-          Why should we watch this?
-          <%= text_field_tag(:why_watch) %>
-        </div>
-
-
-        <div class="actions">
-          <%= submit_tag("Add") %>
-        </div>
-      <% end %>
+        <%= render :partial => "reaction_modal" %>
 
 
 

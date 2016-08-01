@@ -47,6 +47,13 @@ class VideosController < ApplicationController
     @videos = Video.all
   end
 
+
+  def next
+    @video = current_user.get_next_video
+
+    render 'show', id: @video.id
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_video
