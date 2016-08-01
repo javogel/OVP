@@ -18,9 +18,11 @@
         <!-- Header -->
         <div class="card-header">
           <div class="card-header__avatar">
-            <% if user.image_url %>
-            <img src=<%= user.image_url + "?type=large" %> >
-            <% end %>
+            <a href="/users/<%= user.id%>">
+              <% if user.image_url %>
+              <img src=<%= user.image_url + "?type=large" %> >
+              <% end %>
+            </a>
           </div>
           <div class="follow-button">
 
@@ -34,7 +36,9 @@
         </div>
         <!-- Content-->
         <div class="card-content">
-          <div class="card-content__username"><%= user.first_name + " " + user.last_name %></div>
+          <a href="/users/<%= user.id%>">
+            <div class="card-content__username"><%= user.first_name + " " + user.last_name %></div>
+          </a>
           <!-- <div class="card-content__bio">Demo or it didn't happen.</div> -->
         </div>
         <!-- Footer-->

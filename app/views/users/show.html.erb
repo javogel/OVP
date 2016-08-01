@@ -26,10 +26,12 @@
         <div role="tabpanel" class="tab-pane fade in active" id="shared">
           <ul class="thumbnail-list">
             <% @user_shared_videos.each do |video| %>
-              <li class="thumbnail-list-item"><img src="http://img.youtube.com/vi/<%= video.youtube_id%>/mqdefault.jpg" class="video-thumbnail">
-                <div class="video-thumbnail-info"<h4 class="video-thumbnail-name"><%= video.name %></h4>
-                </div>
-              </li>
+              <a href="/videos/<%= video.id%>">
+                <li class="thumbnail-list-item"><img src="http://img.youtube.com/vi/<%= video.youtube_id%>/mqdefault.jpg" class="video-thumbnail">
+                  <div class="video-thumbnail-info"<h4 class="video-thumbnail-name"><%= video.name %></h4>
+                  </div>
+                </li>
+              </a>
             <% end %>
           </ul>
         </div>
