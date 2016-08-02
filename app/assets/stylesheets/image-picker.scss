@@ -1,7 +1,7 @@
 $thumbnail_padding:         6px;
 $thumbnail_margin:          12px;
 $thumbnail_border:          0px solid #DDD;
-$thumbnail_selected_color:  #47457e;
+$thumbnail_selected_color:  #4770C2;
 
 ul.thumbnails.image_picker_selector
 {
@@ -11,6 +11,10 @@ ul.thumbnails.image_picker_selector
   list-style-type:      none;
   padding:              0px;
   margin:               0px;
+  // Three lines below were added by JV
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 
   ul
   {
