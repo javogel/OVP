@@ -2,12 +2,13 @@ Rails.application.routes.draw do
 
   post 'reactions/:video_id/create', to: 'reactions#create'
 
+  patch '/users/categories/update_all', to: 'users#update_categories'
+  get 'categories/show_all', to: 'categories#show_all', as: 'category_all'
 
-  # get 'videos/new', to: "videos#new", as: 'new_video'
-  # post '/videos', to: "videos#create"
-  # delete 'videos/destroy', to: "videos#destroy"
-  # get 'videos/:id', to: "videos#show", as: 'video'
-  # get '/videos', to: "videos#index"
+
+  resources :follows, only: [:index, :create]
+  delete '/follows/destroy', to: 'follows#destroy'
+
 
   resources :videos, only: :none do
     get :next, on: :collection
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
   resources :videos
   resources :categories
   resources :reactions
+  resources :users, only: :show
 
   root to: 'pages#home'
   get '/login', to: 'pages#login', as: 'login'
@@ -24,21 +26,14 @@ Rails.application.routes.draw do
 
   # get '/user/profile/:user_id', to: 'users#show'
   # post '/user/categories', to: 'users#update_categories'
-
-  resources :users, only: :show do
-    # resources :categories, only: :none do
-    #   patch :update_all, on: :collection
-    # end
-  end
-  patch '/users/categories/update_all', to: 'users#update_categories'
-
+  #
+  # resources :users, only: :show do
+  #   resources :categories, only: :none do
+  #     patch :update_all, on: :collection
+  #   end
+  # end
 
   # get '/user/next', to: 'users#next_video', as: 'next_video'
-
-
-
-  resources :follows, only: [:index, :create]
-  delete '/follows/destroy', to: 'follows#destroy'
 
   # get '/follow/', to: 'users#follow', as: 'follow'
   # post '/follow/', to: 'users#follow_add'

@@ -19,37 +19,36 @@
     <nav class="navbar navbar-default">
         <!-- container was here -->
       <div class="col-sm-3">
-        <div class="navbar-header center-nav-contents nav-actions">
+        <% if current_user %>
+          <div class="navbar-header center-nav-contents nav-actions">
 
 
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
 
 
 
 
-          <a href="#" data-toggle="modal" data-target="#myModal" class ="category-modal-nav button-disable"><i class="material-icons">view_module</i></a>
-          <%= link_to next_videos_path do %><i class="material-icons">gesture</i><% end %>
-          <%= link_to new_video_path do %>
-          <i class="material-icons">add</i>
-          <% end %>
+            <a href="#" data-toggle="modal" data-target="#myModal" class ="category-modal-nav button-disable"><i class="material-icons">view_module</i></a>
+            <%= link_to next_videos_path do %><i class="material-icons">gesture</i><% end %>
+            <%= link_to new_video_path do %>
+            <i class="material-icons">add</i>
+            <% end %>
 
 
-        </div>
+          </div>
+        <% end %>
       </div>
 
 
         <div class="col-sm-6 center-nav-content">
 
             <%= link_to image_tag('qush-logo-light2.png', alt: "Logo", :class => "logo-header"), root_path %>
-            <!-- <span class="glyphicon glyphicon-plus nav-action-buttons" aria-hidden="true"></span> -->
 
-
-            <!-- <button type="button" class="btn btn-primary btn-lg outline">Add video</button> -->
         </div>
 
       <div class="col-sm-3">
@@ -72,24 +71,29 @@
                   </a>
 
                   <ul class="dropdown-menu centerDropdown" aria-labelledby="dropdownMenu1">
-                     <li><a href="#">Watch videos</a></li>
+
+                     <li><%= link_to 'Just watch ', next_videos_path, method: :get %></li>
                      <li><a href="/users/<%= current_user.id%>">My profile</a></li>
-                     <li><%= link_to 'Following', follows_path, method: :get %></li>
-                     <li><a href="#" data-toggle="modal" data-target="#myModal" class ="category-modal-nav button-disable">Categories</a></li>
-                     <li><%= link_to 'Log out', logout_path, method: :delete %></li>
+
+                     <li><%= link_to 'Browse', category_all_path, method: :get %></li>
+                     <li><%= link_to 'People', follows_path, method: :get %></li>
+                     <li><a href="#" data-toggle="modal" data-target="#myModal" class ="category-modal-nav button-disable">Set Categories</a></li>
+
+                      <li><%= link_to 'Share a video!', new_video_path, method: :get %></li>
                      <li role="separator" class="divider"></li>
-                     <li><a href="#">Add a video!</a></li>
+                     <li><%= link_to 'Log out', logout_path, method: :delete %></li>
                   </ul>
 
                 </li>
 
-                <li class="hidden-sm hidden-md hidden-lg"><a href="#">Watch videos</a></li>
+                <li class="hidden-sm hidden-md hidden-lg"><%= link_to 'Just watch ', next_videos_path, method: :get %></li>
                 <li class="hidden-sm hidden-md hidden-lg"><a href="/user/profile/<%= current_user.id%>">My profile</a></li>
-                <li class="hidden-sm hidden-md hidden-lg"><%= link_to 'Following', follows_path, method: :get %></li>
+                <li class="hidden-sm hidden-md hidden-lg"><%= link_to 'Browse', category_all_path, method: :get %></li>
+                            <li class="hidden-sm hidden-md hidden-lg"><%= link_to 'People', follows_path, method: :get %></li>
                 <li class="hidden-sm hidden-md hidden-lg"><a href="#" data-toggle="modal" data-target="#myModal" class ="category-modal-nav button-disable">Categories</a></li>
+                <li class="hidden-sm hidden-md hidden-lg"><%= link_to 'Share a video!', new_video_path, method: :get %></li>
+                <li class="hidden-sm hidden-md hidden-lg" role="separator" class="divider"></li>
                 <li class="hidden-sm hidden-md hidden-lg"><%= link_to 'Log out', logout_path, method: :delete %></li>
-                <li class="hidden-sm hidden-md hidden-lg"role="separator" class="divider"></li>
-                <li class="hidden-sm hidden-md hidden-lg"><a href="#">Add a video!</a></li>
 
 
               </ul>
@@ -107,7 +111,7 @@
       </div>
     </nav>
 
-    <div class="container">
+    <div>
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>">
           <%= value %>

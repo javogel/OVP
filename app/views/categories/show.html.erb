@@ -1,19 +1,22 @@
-<p id="notice"><%= notice %></p>
+<div class="category-header">
 
-<p>
-  <strong>Name:</strong>
+<h2>
+
   <%= @category.name %>
-</p>
+</h2>
 
-<p>
-  <strong>Description:</strong>
-  <%= @category.description %>
-</p>
+</div>
+  <!-- <%= image_tag @category.category_image(:medium) %> -->
 
-<p>
-  <strong>Img url:</strong>
-  <%= image_tag @category.category_image %>
-</p>
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<div class="category-videos">
+  <ul class="thumbnail-list">
+    <% @category.videos.each do |video| %>
+      <a href="/videos/<%= video.id%>">
+        <li class="thumbnail-list-item"><img src="http://img.youtube.com/vi/<%= video.youtube_id%>/mqdefault.jpg" class="video-thumbnail">
+          <div class="video-thumbnail-info"<h4 class="video-thumbnail-name"><%= video.name %></h4>
+          </div>
+        </li>
+      </a>
+    <% end %>
+  </ul>
+</div>

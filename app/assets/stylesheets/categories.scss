@@ -1,0 +1,34 @@
+
+
+.category-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+.category-thumbnail img{
+  max-width: 250px;
+}
+
+.category-header {
+  background-color: #47457e;
+  color: white;
+  height: 100px;
+  margin-top: -20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.category-header h2{
+  padding-top: 10px;
+}
+
+.category-videos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 10px;
+}

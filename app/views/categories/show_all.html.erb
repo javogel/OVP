@@ -1,0 +1,9 @@
+<div class="category-container">
+  <% @categories.each do |category| %>
+    <%= link_to(category) do %>
+      <div class="category-thumbnail">
+         <%= image_tag category.category_image(:medium) %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
