@@ -87,7 +87,7 @@
                 </li>
 
                 <li class="hidden-sm hidden-md hidden-lg"><%= link_to 'Just watch ', next_videos_path, method: :get %></li>
-                <li class="hidden-sm hidden-md hidden-lg"><a href="/user/profile/<%= current_user.id%>">My profile</a></li>
+                <li class="hidden-sm hidden-md hidden-lg"><a href="/users/<%= current_user.id%>">My profile</a></li>
                 <li class="hidden-sm hidden-md hidden-lg"><%= link_to 'Browse', category_all_path, method: :get %></li>
                             <li class="hidden-sm hidden-md hidden-lg"><%= link_to 'People', follows_path, method: :get %></li>
                 <li class="hidden-sm hidden-md hidden-lg"><a href="#" data-toggle="modal" data-target="#myModal" class ="category-modal-nav button-disable">Categories</a></li>
