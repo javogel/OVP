@@ -9,8 +9,13 @@
 
 }
 
+.user-profile-pic-container {
+    border-radius: 50%;
+    overflow: hidden;
+}
+
 .user-profile-main-pic {
-  border-radius: 50%;
+
   max-height: 150px;
 }
 .video-thumbnail {
