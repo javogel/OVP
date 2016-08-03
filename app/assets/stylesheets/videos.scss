@@ -77,19 +77,37 @@
   background-color: #47457e;
   color: white;
   padding: 5px 10px;
+  border-radius: 50%
 
 }
 
 .user-reaction-image {
   border-radius: 50%;
   max-width: 40px;
+  display: inline;
 }
 
 .reaction {
   margin: 10px 0;
 }
 
+.reaction p{
+  display: inline;
+}
 
+#reaction-thumb-down {
+  color: #D17583;
+  font-size: 15px;
+}
+
+#reaction-thumb-up {
+  color: #98DD9B;
+  font-size: 15px;
+}
+
+.reaction-why-textfield {
+  width: 100%
+}
 
 @media only screen and (max-width:769px){
 // body::before{ content: "Media query (width < 700px) fired"; font-weight: bold; display: block; text-align: center; background: rgba(255,255,0, 0.9);

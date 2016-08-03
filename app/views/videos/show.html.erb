@@ -24,22 +24,36 @@
 
 
     <div class="reactions-container">
-      <a href="#" data-toggle="modal" data-target="#reactionModal" class ="category-modal-nav button-disable">
+      <a href="#" data-toggle="modal" data-target="#reactionUpModal" class ="category-modal-nav button-disable">
       <i class="material-icons">thumb_up</i></a>
       <span class="rating-count"> <%= @video.reactions.where("rating > ?", 0).count %></span>
-      <i class="material-icons">thumb_down</i>
+
+      <a href="#" data-toggle="modal" data-target="#reactionDownModal" class ="category-modal-nav button-disable">
+      <i class="material-icons">thumb_down</i></a>
     </div>
 
     <div class="recommendations-container">
-      <h5> <%= @video.user.name %> shared this video </h5>
+      <div class="reaction">
+        <img src=<%= @video.user.image_url + "?type=small" %> class="user-reaction-image" >
+        <p> <%= @video.user.name %> shared this video </p>
+
+      </div>
+
 
 
       <div class="past-reactions-container">
 
         <% @video.reactions.each do |reaction| %>
 
-        <div class="reaction"><img src=<%= reaction.user.image_url + "?type=small" %> class="user-reaction-image" >
-          <%= reaction.user.name %>: <%= reaction.rating %> watch because
+        <div class="reaction">
+          <img src=<%= reaction.user.image_url + "?type=small" %> class="user-reaction-image" >
+          <%= reaction.user.name %>:
+           <% if reaction.rating > 0 %>
+              <i class="material-icons" id="reaction-thumb-up">thumb_up</i></a>
+           <% else %>
+              <i class="material-icons" id="reaction-thumb-down">thumb_down</i>
+           <% end%>
+            because
             <%= reaction.why_watch %>
 
         </div>
@@ -48,7 +62,7 @@
 
 
 
-        <%= render :partial => "reaction_modal" %>
+
 
 
 
@@ -60,8 +74,11 @@
 
 
 
-  <%= render :partial => "videos/video_show_view_js" %>
+
+      <%= render :partial => "reaction_up_modal" %>
+      <%= render :partial => "reaction_down_modal" %>
 
 
+      <%= render :partial => "videos/video_show_view_js" %>
 
 </div>

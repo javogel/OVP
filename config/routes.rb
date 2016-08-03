@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  post 'reactions/:video_id/create', to: 'reactions#create'
+  # post 'reactions/:video_id/create', to: 'reactions#create'
 
   patch '/users/categories/update_all', to: 'users#update_categories'
   get 'categories/show_all', to: 'categories#show_all', as: 'category_all'
@@ -12,10 +12,11 @@ Rails.application.routes.draw do
 
   resources :videos, only: :none do
     get :next, on: :collection
+    resources :reactions, only: [:create, :destroy]
   end
   resources :videos
   resources :categories
-  resources :reactions
+
   resources :users, only: :show
 
   root to: 'pages#home'
@@ -23,7 +24,7 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-
+  # resources :reactions
   # get '/user/profile/:user_id', to: 'users#show'
   # post '/user/categories', to: 'users#update_categories'
   #

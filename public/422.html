@@ -1,67 +1,131 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The change you wanted was rejected (422)</title>
+  <title>The page you were looking for doesn't exist (404)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Monoton|Open+Sans:300i" rel="stylesheet">
   <style>
   body {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-    margin: 0;
+    background: #2D3949;
+    background: #2D3949 url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/130891/stars.png) repeat top center;
   }
 
-  div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
+  @-webkit-keyframes move-twink-back {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: -10000px 5000px;
+    }
   }
 
-  div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  @keyframes move-twink-back {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: -10000px 5000px;
+    }
+  }
+  .twinkling {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: transparent url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/130891/twinkling.png) repeat top center;
+    z-index: 1;
+    -webkit-animation: move-twink-back 200s linear infinite;
+            animation: move-twink-back 200s linear infinite;
   }
 
   h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
+    font-size: 72px;
+
+    font-family: 'Bungee Shade', cursive;
+    margin: 15px;
   }
 
-  div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  h3 {
+    font-size: 48px;
+    line-height: 32px;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-family: 'Monoton', cursive;
+
+    margin: 5px;
   }
+
+  hr {
+    width: 100px;
+    margin: 0.1em auto 1em;
+    border: none;
+    height: 2px;
+    background: white;
+  }
+
+  p {
+    font-size: 24px;
+    line-height: 34px;
+    font-family: 'Open Sans', sans-serif;
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 2;
+  }
+  .video:before {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 2;
+    background-image: -webkit-linear-gradient(rgba(45, 57, 73, 0), #2D3949);
+    background-image: linear-gradient(rgba(45, 57, 73, 0), #2D3949);
+    width: 100%;
+    height: 75%;
+    top: 25%;
+    left: 0;
+  }
+
+  video {
+    width: 100%;
+    margin-top: -15%;
+    opacity: 0.35;
+  }
+
+  header {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: white;
+    padding: 12em 0 5em;
+  }
+
   </style>
 </head>
 
 <body>
-  <!-- This file lives in public/422.html -->
-  <div class="dialog">
-    <div>
-      <h1>The change you wanted was rejected.</h1>
-      <p>Maybe you tried to change something you didn't have access to.</p>
-    </div>
-    <p>If you are the application owner check the logs for more information.</p>
+  <!-- This file lives in public/404.html -->
+  <div class="twinkling"></div>
+  <div class="video">
+  	<video id="InformationVideo" class="information__video information__video--visible" preload="auto" autobuffer="" autoload="" autoplay="" loop="">
+  		<source src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/130891/astrochimp.mp4" type="video/mp4">
+  		<source src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/130891/astrochimp.webm" type="video/webm">
+  		<source src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/130891/astrochimp.ogg" type="video/ogg">
+  	</video>
   </div>
+  <header>
+  	<h1>422</h1>
+  	<h3>error</h3><br>
+  	<hr />
+  	<p>
+  		"Monkey...<br>
+  		Stop touching the controls.<br>
+  		I think you broke something."
+  	</p>
+  </header>
 </body>
 </html>
