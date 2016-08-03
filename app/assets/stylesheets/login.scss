@@ -4,12 +4,12 @@ body {
    background-color: #000000;
    padding: 0px;
    margin: 0px;
-   
+
 }
 
-#gradient {
+#gradient2 {
   width: 100%;
-  height: 100%;
+  min-height: 100%;
 
   padding: 0px;
   margin: 0px;
@@ -45,4 +45,31 @@ body {
   text-align: center;
   margin: 0 10px 50px 10px;
   font-weight: 300;
+}
+
+
+#gradient2{
+  background: linear-gradient(275deg, #8896d7, #8cd9ba, #7d4bc3, #4766c2, #cc6679);
+  background-size: 1000% 1000%;
+
+  -webkit-animation: AnimationName 52s ease infinite;
+  -moz-animation: AnimationName 52s ease infinite;
+  animation: AnimationName 52s ease infinite;
+
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 51%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 51%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 51%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 51%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 51%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 51%}
 }
