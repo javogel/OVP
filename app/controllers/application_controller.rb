@@ -12,7 +12,14 @@ class ApplicationController < ActionController::Base
     def authenticate_user!
       unless current_user
         redirect_to login_path, :notice => 'You must log in to access this page.'
-        
+
+      end
+    end
+
+    def authorize_user!
+      unless current_user.id == 1
+        redirect_to root_path, :notice => 'Sorry. You cannot access this page. Try again in a century.'
+
       end
     end
 

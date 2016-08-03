@@ -8,12 +8,12 @@ class PagesController < ApplicationController
     else
 
       render "login"
-      # redirect_to url_for(:controller => :pages, :action => :login)
+      
     end
   end
 
 
   def login
-    # render "login", :layout => false
+    render "login", :layout => false
   end
 end

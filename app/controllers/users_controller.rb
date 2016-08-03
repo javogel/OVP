@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-
+  before_action :authenticate_user!
+  
   def update_categories
 
     current_user.categories = Category.where(id: params[:categories])
@@ -8,7 +9,7 @@ class UsersController < ApplicationController
 
 
   def show
-    
+
     @user = User.find(params[:id])
     @user_shared_videos = @user.videos
 
