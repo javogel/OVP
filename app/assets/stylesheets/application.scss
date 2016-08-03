@@ -58,7 +58,12 @@ a:focus {
 
  .navbar {
    padding: 0px 30px;
+   background-image: none;
+   box-shadow: none;
+   background-repeat: no-repeat;
  }
+
+
 
  .navbar ul li img {
    border-radius: 50%;
