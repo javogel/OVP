@@ -8,4 +8,24 @@
 
 
 
-<span class="fb-login"><%= link_to image_tag("facebook-login.png"), '/auth/facebook'%></span>
+
+
+
+
+<html>
+  <head>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'login'%>
+    <%= stylesheet_link_tag    'login' %>
+
+  </head>
+  <body>
+    <div id="gradient" />
+<div class="login-container">
+  <%= image_tag('qush-logo-white.png', alt: "Logo", :class => "qush-login-logo") %>
+  <h1>Share & find great videos recommended by friends</h1>
+  <span class="fb-login"><%= link_to image_tag("facebook-login.png"), '/auth/facebook'%></span>
+</div>
+ </body>
+</html>

@@ -54,14 +54,7 @@ a:focus {
     padding: 15px;
  }
 
- .fb-login{
-   margin: 20px auto;
-   display: block;
- }
 
- .fb-login img {
-     max-width: 165px;
- }
 
  .navbar {
    padding: 0px 30px;
@@ -215,4 +208,13 @@ i.material-icons:hover {
   background-color: #47457e;
   border-color: #47457e;
   color: white;
+}
+
+.alert {
+  margin-top: -20px;
+  background-color: #8897b9 !important;
+  color: white;
+  background-image: none;
+  box-shadow: none;
+  border: none;
 }

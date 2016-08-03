@@ -1,0 +1,48 @@
+
+
+body {
+   background-color: #000000;
+   padding: 0px;
+   margin: 0px;
+   
+}
+
+#gradient {
+  width: 100%;
+  height: 100%;
+
+  padding: 0px;
+  margin: 0px;
+}
+
+
+.fb-login{
+  margin: 30px auto;
+
+}
+
+.fb-login img {
+    max-width: 185px;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container .qush-login-logo{
+  max-width: 45%;
+  margin: 150px 10 80px 10;
+}
+
+
+
+.login-container h1 {
+  color: white;
+  margin-bottom: 50px;
+  text-align: center;
+  margin: 0 10px 50px 10px;
+  font-weight: 300;
+}

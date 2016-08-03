@@ -7,8 +7,8 @@ class PagesController < ApplicationController
       redirect_to controller: 'videos', action: 'show', id: @video.id
     else
 
-      render "login"
-      
+      login
+
     end
   end
 
