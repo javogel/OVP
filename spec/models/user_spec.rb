@@ -17,7 +17,7 @@ RSpec.describe User, type: :model do
      end
 
      it "it does not duplicate user" do
-       Video.create(first_name: "Sameas", last_name: "Firstuser" email: "test@gmail.com").should_not be_valid
+       Video.create(first_name: "Sameas", last_name: "Firstuser", email: "test@gmail.com").should_not be_valid
      end
 
     #  it "it checks for valid youtube_id" do

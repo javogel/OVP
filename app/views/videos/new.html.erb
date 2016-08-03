@@ -1,15 +1,22 @@
-<h1>Share an amazing video:</h1>
+<div class="add-container">
+<h1>Share a video that you love.</h1>
+
+<p class="caveat"> Please make sure to share only videos that think others would recieve value from watching. Note: only Youtube videos allowed for the moment.</p>
 
 
 <%= form_tag("/videos", method: "post") do %>
-  <%= label_tag(:url, "Video URL") %>
-  <%= text_field(:video, :url, size: 20) %>
 
+  <h3> Video URL </h3>
+  <div class="new-video-link-input">
+    <!-- <%= label_tag(:url, "Video URL") %> -->
+    <%= text_field(:video, :url, size: 30, placeholder: "Add your video link here", class: "add-input") %>
+  </div>
 
 
 
   <!-- <%= select_tag 'categories', options_for_select(@categories.collect{ |u| [u.name, u.id] }) %> -->
-  <p> Please select the categories which describe the video so that others can find it: </p>
+  <h3> Video Categories </h3>
+  <p> Select the categories that best describe your video: </p>
 
   <select multiple="multiple" id="category-video-image-picker" name="categories[]" class="image-picker category-image-picker show-html">
 
@@ -21,7 +28,9 @@
   </select>
 
 
-  <%= submit_tag("Add") %>
+  <%= submit_tag("Share Video", :class => "qush-button") %>
 <% end %>
 
-<%= link_to 'Back', videos_path %>
+<!-- <%= link_to 'Back', videos_path %> -->
+
+</div>

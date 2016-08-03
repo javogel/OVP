@@ -109,6 +109,50 @@
   width: 100%
 }
 
+
+.add-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  margin: 0 15px
+}
+
+.add-container h1 {
+text-align: center;
+
+}
+
+.add-container form{
+text-align: center;
+}
+
+.add-container .caveat{
+max-width: 600px;
+margin: 5px 0 25px 0;
+
+text-align: center;
+}
+
+.add-container .add-input {
+border: solid 2px #8897b9;
+height: 35px;
+border-radius: 5px;
+width: 60%;
+margin-bottom: 25px;
+padding-left: 10px;
+}
+
+.add-container .add-input:focus {
+outline-color: #8897b9;
+
+}
+
+.add-container .new-video-link-input {
+  margin: 0 15px;
+}
+
 @media only screen and (max-width:769px){
 // body::before{ content: "Media query (width < 700px) fired"; font-weight: bold; display: block; text-align: center; background: rgba(255,255,0, 0.9);
 //  position: absolute; top: 0; left: 0; right: 0; z-index: 99;}
