@@ -51,7 +51,7 @@ class VideosController < ApplicationController
 
   def next
     @video = current_user.get_next_video
-
+    @reaction = Reaction.new
     render 'show', id: @video.id
   end
 
