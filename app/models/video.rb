@@ -31,5 +31,9 @@ class Video < ApplicationRecord
     end
   end
 
+  def non_empty_reactions
+    self.reactions.select{|reaction| !reaction["why_watch"].empty? }
+  end
+
 
 end

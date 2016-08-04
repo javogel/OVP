@@ -79,7 +79,13 @@
 
 
 
+.reaction a p {
+  color: #47457e
+}
 
+.reaction a:hover {
+  text-decoration: none;
+}
 
 .user-reaction-image {
   border-radius: 50%;

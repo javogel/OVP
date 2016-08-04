@@ -49,19 +49,24 @@
       <div class="recommendation-column">
 
         <div class="reaction">
-          <img src=<%= @video.user.image_url + "?type=small" %> class="user-reaction-image" >
-          <p> <%= @video.user.name %> shared this video </p>
+          <%= link_to(@video.user) do %>
+              <img src=<%= @video.user.image_url + "?type=small" %> class="user-reaction-image" >
+              <p> <%= @video.user.name %></p>
+          <% end %>
+             <p> shared this video.</p>
         </div>
 
         <div class="past-reactions-container">
 
-          <% @video.reactions.each do |reaction| %>
+          <% @video.non_empty_reactions.each do |reaction| %>
 
           <div class="reaction">
              <% if reaction["rating"] == 1 %>
+              <%= link_to(reaction.user) do%>
                <img src=<%= reaction.user.image_url + "?type=small" %> class="user-reaction-image" >
-               <%= reaction.user.name %>:
-               <%= reaction.why_watch %>
+                 <p> <%= reaction.user.name %> </p>
+               <% end %>:
+                  <p> <%= reaction.why_watch %> </p>
              <% end%>
           </div>
           <% end %>
