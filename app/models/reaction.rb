@@ -6,7 +6,7 @@ class Reaction < ApplicationRecord
 
   scope :only_likes, -> { where(rating: 1) }
 
-  attr_accessor(:rating)
+  
   #scope :newest_first, -> { order('created_at DESC') }
 
   #video.reactions.only_likes.newest_first
