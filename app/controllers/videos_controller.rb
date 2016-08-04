@@ -42,6 +42,11 @@ class VideosController < ApplicationController
 
   def show
     @reaction = Reaction.new
+
+    session[:last_video].unshift(params[:id])
+    session[:last_video] = session[:last_video].take(5)
+
+
   end
 
   def index
@@ -50,9 +55,12 @@ class VideosController < ApplicationController
 
 
   def next
-    @video = current_user.get_next_video
+    session[:last_video] = session[:last_video] || []
+
+    @video = current_user.get_next_video(session[:last_video])
     @reaction = Reaction.new
-    render 'show', id: @video.id
+    
+    redirect_to action: 'show', id: @video.id
   end
 
   private

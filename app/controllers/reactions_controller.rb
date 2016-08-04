@@ -16,9 +16,9 @@ class ReactionsController < ApplicationController
     end
 
     if @reaction.save
-      flash[:notice] = "Your recommendation was saved correctly"
+      flash[:notice] = "Your reactions was saved correctly"
     else
-       flash[:notice] = "Your recommendation was not processed correctly"
+       flash[:notice] = "Your reaction was not processed correctly"
     end
 
 

@@ -32,9 +32,20 @@ class User < ApplicationRecord
   end
 
 
-  def get_next_video
-    random_video_id = Video.pluck(:id).sample
-    Video.find(random_video_id)
+  def get_next_video(last_seen_video_ids)
+
+    candidate_video_ids = [
+      videos_from_categories_ids,
+      videos_from_following_ids,
+      videos_liked_following_ids
+    ].flatten.uniq
+
+    last_seen_video_ids.map! {|id| id.to_i}
+
+    candidate_video_ids -= last_seen_video_ids
+
+    Video.find_by(id: candidate_video_ids.sample) ||
+      Video.find(Video.pluck(id).sample)
   end
 
 
@@ -47,14 +58,35 @@ class User < ApplicationRecord
   end
 
   def get_category_ids
-    category_array = self.categories.map {|category| category.id}
+    categories.pluck(:id)
   end
-
-
-
 
   def name
     self.first_name + " " + self.last_name
   end
 
+  private
+
+
+
+  def videos_from_categories_ids
+    Video.
+      joins(:video_categories).
+      where("video_categories.category_id IN (?)", get_category_ids).
+      pluck(:id)
+  end
+
+  def videos_from_following_ids
+    Video.
+      where(user_id: following).
+      pluck(:id)
+  end
+
+  def videos_liked_following_ids
+    Video.
+      joins(:reactions).
+      where("reactions.rating > 0").
+      where("reactions.user_id IN (?)", following.pluck(:id)).
+      pluck(:id)
+  end
 end

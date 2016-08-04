@@ -46,42 +46,42 @@
 
     <div class="recommendations-container">
 
-      <div class="recommendation-column">
-
-        <div class="reaction">
-          <%= link_to(@video.user) do %>
-              <img src=<%= @video.user.image_url + "?type=small" %> class="user-reaction-image" >
-              <p> <%= @video.user.name %></p>
-          <% end %>
-             <p> shared this video.</p>
-        </div>
-
-        <div class="past-reactions-container">
-
-          <% @video.non_empty_reactions.each do |reaction| %>
+        <div class="recommendation-column">
 
           <div class="reaction">
-             <% if reaction["rating"] == 1 %>
-              <%= link_to(reaction.user) do%>
-               <img src=<%= reaction.user.image_url + "?type=small" %> class="user-reaction-image" >
-                 <p> <%= reaction.user.name %> </p>
-               <% end %>:
-                  <p> <%= reaction.why_watch %> </p>
-             <% end%>
+            <%= link_to(@video.user) do %>
+                <img src=<%= @video.user.image_url + "?type=small" %> class="user-reaction-image" >
+                <p> <%= @video.user.name %></p>
+            <% end %>
+               <p> shared this video.</p>
           </div>
-          <% end %>
-        </div>
-    </div>
+
+          <div class="past-reactions-container">
+
+            <% @video.non_empty_reactions.each do |reaction| %>
 
 
+               <% if reaction["rating"] == 1 %>
 
+                <div class="reaction">
+                     <%= link_to(reaction.user) do %>
+                       <div class="video-reaction-components">
+                         <img src=<%= reaction.user.image_url + "?type=small" %> class="user-reaction-image" >
+                       </div>
+                     <% end %>
 
+                     <div class="video-reaction-components">
+                       <%= link_to(reaction.user) do %>
+                        <p> <%= reaction.user.name %>: </p>
+                       <% end%>
+                       <p> <%= reaction.why_watch %> </p>
+                     </div>
+                </div>
 
-
-
-
-
-
+               <% end %>
+            <% end %>
+          </div>
+      </div>
     </div>
 
 
