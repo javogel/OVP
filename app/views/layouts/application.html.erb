@@ -33,10 +33,11 @@
 
 
 
-            <a href="#" data-toggle="modal" data-target="#myModal" class ="category-modal-nav button-disable"><i class="material-icons">view_module</i></a>
-            <%= link_to next_videos_path do %><i class="material-icons">gesture</i><% end %>
-            <%= link_to new_video_path do %>
-            <i class="material-icons">add</i>
+            <a href="#" data-toggle="modal" data-target="#myModal" class ="category-modal-nav button-disable" ><i class="material-icons nav-action-icon" data-toggle="tooltip" data-placement="bottom" title="Set your categories">view_module</i></a>
+            <!-- <%= link_to next_videos_path do %><i class="material-icons nav-action-icon">gesture</i><% end %> -->
+            <%= link_to new_video_path, :data => {:toggle => "tooltip", :placement => "bottom"},
+              :title => "Add a video" do %>
+            <i class="material-icons nav-action-icon">add</i>
             <% end %>
 
 
@@ -47,7 +48,10 @@
 
         <div class="col-sm-6 center-nav-content">
 
-            <%= link_to image_tag('qush-logo-light2.png', alt: "Logo", :class => "logo-header"), root_path %>
+            <%= link_to image_tag('qush-logo-light2.png', alt: "Logo",
+                    :class => "logo-header",
+                    :data => {:toggle => "tooltip", :placement => "bottom"},
+                    :title => "Next video"  ), root_path %>
 
         </div>
 
@@ -79,7 +83,7 @@
                      <li><%= link_to 'People', follows_path, method: :get %></li>
                      <li><a href="#" data-toggle="modal" data-target="#myModal" class ="category-modal-nav button-disable">Set Categories</a></li>
 
-                      <li><%= link_to 'Share a video!', new_video_path, method: :get %></li>
+                      <li><%= link_to 'Share a video', new_video_path, method: :get %></li>
                      <li role="separator" class="divider"></li>
                      <li><%= link_to 'Log out', logout_path, method: :delete %></li>
                   </ul>
@@ -91,7 +95,7 @@
                 <li class="hidden-sm hidden-md hidden-lg"><%= link_to 'Browse', category_all_path, method: :get %></li>
                             <li class="hidden-sm hidden-md hidden-lg"><%= link_to 'People', follows_path, method: :get %></li>
                 <li class="hidden-sm hidden-md hidden-lg"><a href="#" data-toggle="modal" data-target="#myModal" class ="category-modal-nav button-disable">Categories</a></li>
-                <li class="hidden-sm hidden-md hidden-lg"><%= link_to 'Share a video!', new_video_path, method: :get %></li>
+                <li class="hidden-sm hidden-md hidden-lg"><%= link_to 'Share a video', new_video_path, method: :get %></li>
                 <li class="hidden-sm hidden-md hidden-lg" role="separator" class="divider"></li>
                 <li class="hidden-sm hidden-md hidden-lg"><%= link_to 'Log out', logout_path, method: :delete %></li>
 

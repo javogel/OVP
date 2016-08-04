@@ -17,4 +17,19 @@ class Video < ApplicationRecord
     rescue Yt::Errors::RequestError
     end
   end
+
+
+
+
+  def liked_by?(user_id)
+    reaction_exists = User.find(user_id).reactions.exists?( :video_id => self.id)
+    reaction = Reaction.where("user_id = ? AND video_id = ?", user_id, self.id )[0]
+    if reaction_exists && (reaction["rating"] == 1)
+      true
+    else
+      false
+    end
+  end
+
+
 end

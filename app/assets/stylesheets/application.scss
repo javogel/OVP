@@ -115,6 +115,19 @@ a:focus {
 }
 
 
+.tooltip.bottom .tooltip-inner {
+    background-color: #8897b9;
+}
+.tooltip.bottom .tooltip-arrow {
+      border-bottom-color: #8897b9;
+}
+
+
+
+
+
+
+
 .image_picker_selector .thumbnail{
   border-radius: 0px;
   margin-bottom: 0px
@@ -150,7 +163,7 @@ a:focus {
 
 // Action buttons on header
 
-.nav-actions i.material-icons {
+.nav-actions i.nav-action-icon {
 		font-size: 1.7rem;
 		color: white;
 		position: relative;
@@ -164,17 +177,9 @@ a:focus {
 
 }
 
-.reactions-container i.material-icons {
-		font-size: 2.5rem;
-		color: #8897b9;
-		position: relative;
-		border-radius: 50%;
-		padding: 5px;
-		margin: 10px 5px;
-    transition: all .2s ease-in-out;
 
 
-}
+
 
 
 // i.material-icons:nth-of-type(1) {

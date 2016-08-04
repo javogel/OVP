@@ -1,6 +1,8 @@
 
 
+<div>
 
+</div>
 
 <div class="container" id="video-show-div">
 
@@ -23,42 +25,49 @@
   </div>
 
 
-    <div class="reactions-container">
-      <a href="#" data-toggle="modal" data-target="#reactionUpModal" class ="category-modal-nav button-disable">
-      <i class="material-icons">thumb_up</i></a>
-      <span class="rating-count"> <%= @video.reactions.where("rating > ?", 0).count %></span>
 
-      <a href="#" data-toggle="modal" data-target="#reactionDownModal" class ="category-modal-nav button-disable">
-      <i class="material-icons">thumb_down</i></a>
+    <div class="reactions-container">
+
+        <a href="#" data-toggle="modal" data-target="#reactionUpModal" class ="category-modal-nav button-disable">
+          <button class="<%= @video.liked_by?(current_user.id) ? "qush-button-reaction-liked" : "qush-button-reaction" %>" >
+
+            <i class="material-icons reaction-icons">favorite</i>
+            <!-- <%= image_tag('qush-icon.png', alt: "qush-icon", :class => "qush-favorite-icon") %> -->
+            <span class="rating-count"> <%= @video.reactions.only_likes.count %></span>
+
+          </button>
+        </a>
+
+
     </div>
 
+
+
+
     <div class="recommendations-container">
-      <div class="reaction">
-        <img src=<%= @video.user.image_url + "?type=small" %> class="user-reaction-image" >
-        <p> <%= @video.user.name %> shared this video </p>
 
-      </div>
-
-
-
-      <div class="past-reactions-container">
-
-        <% @video.reactions.each do |reaction| %>
+      <div class="recommendation-column">
 
         <div class="reaction">
-          <img src=<%= reaction.user.image_url + "?type=small" %> class="user-reaction-image" >
-          <%= reaction.user.name %>:
-           <% if reaction.rating > 0 %>
-              <i class="material-icons" id="reaction-thumb-up">thumb_up</i></a>
-           <% else %>
-              <i class="material-icons" id="reaction-thumb-down">thumb_down</i>
-           <% end%>
-            because
-            <%= reaction.why_watch %>
-
+          <img src=<%= @video.user.image_url + "?type=small" %> class="user-reaction-image" >
+          <p> <%= @video.user.name %> shared this video </p>
         </div>
-        <% end %>
-      </div>
+
+        <div class="past-reactions-container">
+
+          <% @video.reactions.each do |reaction| %>
+
+          <div class="reaction">
+             <% if reaction.rating == 1 %>
+               <img src=<%= reaction.user.image_url + "?type=small" %> class="user-reaction-image" >
+               <%= reaction.user.name %>:
+               <%= reaction.why_watch %>
+             <% end%>
+          </div>
+          <% end %>
+        </div>
+    </div>
+
 
 
 

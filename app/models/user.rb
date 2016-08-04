@@ -51,6 +51,8 @@ class User < ApplicationRecord
   end
 
 
+
+
   def name
     self.first_name + " " + self.last_name
   end

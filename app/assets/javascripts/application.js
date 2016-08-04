@@ -38,8 +38,15 @@ $( document ).ready(function() {
     });
 
 
+    activateTooltips();
 
 });
+
+var activateTooltips = function() {
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+}
 
 
 var activateModalButton = function(){

@@ -71,19 +71,20 @@
 
 }
 
-
-
-.rating-count {
-  background-color: #47457e;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 50%
-
+.recommendation-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start
 }
+
+
+
+
 
 .user-reaction-image {
   border-radius: 50%;
-  max-width: 40px;
+  width: 40px;
+  height: 40px;
   display: inline;
 }
 
@@ -106,7 +107,9 @@
 }
 
 .reaction-why-textfield {
-  width: 100%
+  width: 100%;
+  padding: 15px;
+
 }
 
 
@@ -157,6 +160,84 @@ outline-color: #8897b9;
   margin: 20px 10px;
 
 }
+
+.qush-favorite-icon {
+  max-width: 20px
+}
+
+.reactions-container i.reaction-icons {
+		font-size: 2.5rem;
+
+		position: relative;
+		padding: 5px 5px;
+    transition: all .2s ease-in-out;
+    margin: 0 5px 0 0;
+    padding: 0;
+
+}
+
+.reactions-container a {
+  text-decoration: none;
+}
+
+
+
+.rating-count {
+  // background-color: #47457e;
+
+  padding: 1px 4px;
+  border-radius: 50%
+
+}
+
+
+.qush-button-reaction-liked {
+  background-color: #47457e;
+  border-color: #47457e;
+  color: white;
+  padding: 5px 5px 5px 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  border-width: 2px;
+  margin: 20px 15px;
+  border-radius: 3px;
+  // padding: 5px 10px;
+}
+
+.qush-button-reaction-liked:hover {
+  background-color: white;
+  border-color: #47457e;
+  color: #47457e;
+}
+
+.qush-button-reaction {
+  background-color: white;
+  border-color: #47457e;
+  color: #47457e;
+  padding: 5px 5px 5px 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  border-width: 2px;
+  margin: 20px 15px;
+  border-radius: 5px;
+  // padding: 5px 10px;
+}
+
+.qush-button-reaction:hover {
+  background-color: #47457e;
+  border-color: #47457e;
+  color: white;
+
+}
+
+
+
+
+
 
 @media only screen and (max-width:769px){
 // body::before{ content: "Media query (width < 700px) fired"; font-weight: bold; display: block; text-align: center; background: rgba(255,255,0, 0.9);

@@ -5,7 +5,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h3 class="modal-title" >Why should others watch this video? (optional)</h3>
+          <h3 class="modal-title" >Why? </h3>
         </div>
 
 
@@ -16,7 +16,7 @@
        <div class="modal-body">
           <%= f.hidden_field :rating, :value => 1 %>
           <div class="field">
-          <%= f.text_area :why_watch, :rows => '3', :class =>"reaction-why-textfield", :placeholder=> 'e.g. This video adds an interesting perspective on mitochondria.' %>
+          <%= f.text_area :why_watch, :rows => '3', :class =>"reaction-why-textfield", :placeholder=> 'What did you like about this video? Remember, sharing is caring.' %>
           </div>
         </div>
         <div class="modal-footer">
