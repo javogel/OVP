@@ -77,16 +77,22 @@ class User < ApplicationRecord
   end
 
   def videos_from_following_ids
+
     Video.
-      where(user_id: following).
+      where(user_id: following.pluck(:user_id)).
       pluck(:id)
+
+
   end
 
   def videos_liked_following_ids
+
     Video.
       joins(:reactions).
-      where("reactions.rating > 0").
-      where("reactions.user_id IN (?)", following.pluck(:id)).
+      where("reactions.user_id IN (?)", following.pluck(:user_id)).
+      where("reactions.rating > ?", 0).
       pluck(:id)
+
   end
+
 end
