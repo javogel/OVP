@@ -73,3 +73,19 @@ body {
     50%{background-position:100% 50%}
     100%{background-position:0% 51%}
 }
+
+
+
+@media only screen and (max-width:769px){
+
+.fb-login img {
+    max-width: 400px;
+    margin: 100px;
+}
+
+h1, .h1 {
+    font-size: 9rem;
+    margin: 100px 10px 50px 10px;
+}
+
+}
