@@ -3,7 +3,6 @@ class ReactionsController < ApplicationController
 
   def create
 
-    binding.pry
     if Reaction.exists?(user_id: current_user.id, video_id: params[:video_id])
       @reaction = Reaction.where(user_id: current_user.id).where(video_id: params[:video_id])[0]
       @reaction.rating = params[:reaction][:rating].to_i
