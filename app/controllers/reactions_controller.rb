@@ -19,7 +19,7 @@ class ReactionsController < ApplicationController
     end
 
 
-    binding.pry
+    
 
     if @reaction.save
       flash[:notice] = "Your reactions was saved correctly"
