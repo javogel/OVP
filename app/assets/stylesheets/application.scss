@@ -130,12 +130,8 @@ a:focus {
 
 .image_picker_selector .thumbnail{
   border-radius: 0px;
-  margin-bottom: 0px;
-
-  position: relative;
-  display: inline-block;
+  margin-bottom: 0px
 }
-
 
 
 .image_picker_selector .thumbnail img{
@@ -146,20 +142,6 @@ a:focus {
   max-width: 170px;
 }
 
-
-.categories-modal .thumbnail.selected:after {
-  content:'Selected';
-  position:absolute;
-  left: 0px;
-  top: 0px;
-  bottom: 0px;
-  width: 100%;
-  background: rgba(136,151,185,0.5);
-  color: white;
-  text-align: center;
-  content: 'check_circle';
-  padding: 50px;
-}
 
 .categories-modal-description {
   text-align: center;
