@@ -12,8 +12,8 @@
 # User.create(provider: User.first.provider, uid: 25355, image_url: User.first.image_url, first_name: "Party", last_name: "Toys", email: "johannusvl@gma.com")
 # User.create(provider: User.first.provider, uid: 25356, image_url: User.first.image_url, first_name: "Bambi", last_name: "Beckett", email: "johasvl@gm.com")
 
-Video.create_video('https://www.youtube.com/watch?v=j2oXFWKpJiA', 1)
 # Video.create_video('https://www.youtube.com/watch?v=j2oXFWKpJiA', 1)
+# Video.create_video('https://www.youtube.com/watch?v=7SWvDHvWXok', 1)
 # Video.create_video('https://www.youtube.com/watch?v=j2oXFWKpJiA', 1)
 # Video.create_video('https://www.youtube.com/watch?v=j2oXFWKpJiA', 1)
 # Video.create_video('https://www.youtube.com/watch?v=j2oXFWKpJiA', 1)

@@ -10,13 +10,30 @@
 
 <div class="category-videos">
   <ul class="thumbnail-list">
-    <% @category.videos.each do |video| %>
+    <% @videos.each do |video| %>
+
+
+    <li class="thumbnail-list-item">
       <a href="/videos/<%= video.id%>">
-        <li class="thumbnail-list-item"><img src="http://img.youtube.com/vi/<%= video.youtube_id%>/mqdefault.jpg" class="video-thumbnail">
-          <div class="video-thumbnail-info"<h4 class="video-thumbnail-name"><%= video.name %></h4>
-          </div>
-        </li>
+        <div class="video-thumbnail">
+          <img src="http://img.youtube.com/vi/<%= video.youtube_id%>/mqdefault.jpg" >
+        </div>
       </a>
+      <div class="video-thumbnail-info video-list">
+        <a href="/videos/<%= video.id%>">
+          <h4 class="video-thumbnail-name"><%= video.name %></h4>
+        </a>
+        <span class="rating-count">
+          <i class="material-icons ">favorite</i>
+          <p class="likes-count"><%= video.reactions.only_likes.count %></p>
+        </span>
+
+
+      </div>
+    </li>
+
+
+
     <% end %>
   </ul>
 </div>

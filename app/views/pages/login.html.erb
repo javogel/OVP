@@ -23,7 +23,19 @@
 
   </head>
   <body>
+
     <div id="gradient2">
+
+
+        <% flash.each do |key, value| %>
+          <div class="alert login-alert alert-<%= key %>">
+            <%= value %>
+          </div>
+        <% end %>
+
+
+
+
       <div class="login-container">
         <%= image_tag('qush-logo-white.png', alt: "Logo", :class => "qush-login-logo") %>
         <h1>Share & find great videos recommended by friends</h1>

@@ -19,6 +19,11 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
 
+    @videos = Category.
+      find(params[:id]).
+      videos.
+      sort {|a, b| b.reactions.only_likes.count <=> a.reactions.only_likes.count}
+
   end
 
   # GET /categories/new
