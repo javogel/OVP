@@ -130,13 +130,14 @@ a:focus {
 
 .image_picker_selector .thumbnail{
   border-radius: 0px;
-  margin-bottom: 0px
+  margin-bottom: 0px;
+
+  position: relative;
+  display: inline-block;
 }
 
 
-.image_picker_selector .thumbnail img{
-  max-width: 190px;
-}
+
 
 .categories-modal .thumbnail img{
   max-width: 170px;
@@ -153,6 +154,24 @@ a:focus {
 .modal-title {
   text-align: center;
 }
+
+
+.categories-modal .thumbnail.selected:after {
+   position:absolute;
+   left: 0px;
+   top: 0px;
+   bottom: 0px;
+   width: 100%;
+   background: rgba(136,151,185,0.5);
+   color: #47457e;
+   text-align: center;
+   content: 'check_circle';
+   padding: 20px;
+ }
+
+ .modal-body.material-icons {
+   white-space: normal;
+ }
 
 
 @media only screen and (min-width: 768px){
