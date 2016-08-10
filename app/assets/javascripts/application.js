@@ -10,19 +10,30 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
 
+//= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require jquery.fitvids.js
 //= require image-picker.js
+//= require nprogress
 
 //= require_tree .
 
 
+NProgress.configure({
+  showSpinner: true,
+  ease: 'ease',
+  speed: 500
+});
 
 
 $( document ).ready(function() {
+
+progressBar();
+
+
+
 
     $(".category-image-picker").imagepicker({
       initialized: activateModalButton
@@ -76,3 +87,25 @@ var sendUserCategoriesUpdate = function(){
 
 
 };
+
+
+var progressBar = function() {
+
+  // Show the progress bar
+    NProgress.start();
+
+    // Increase randomly
+    var interval = setInterval(function() { NProgress.inc(); }, 1000);
+
+    // Trigger finish when page fully loaded
+    jQuery(window).load(function () {
+        clearInterval(interval);
+        NProgress.done();
+    });
+
+    // Trigger bar when exiting the page
+    jQuery(window).unload(function () {
+        NProgress.start();
+    });
+
+}

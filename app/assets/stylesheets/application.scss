@@ -13,6 +13,13 @@
 
  */
 
+
+ $nprogress-color: #8897b9;
+ $nprogress-height: 2px;
+ $nprogress-zindex: 10100;
+ @import 'nprogress';
+ @import 'nprogress-bootstrap';
+
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import 'bootstrap/theme';
@@ -23,6 +30,8 @@
  @import 'users';
  @import 'videos';
  @import 'categories';
+ @import 'nprogress';
+ @import 'nprogress-bootstrap';
 
 
 h1, h2, h3, h4 {

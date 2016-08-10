@@ -10,6 +10,7 @@ gem 'yt', '~> 0.25.5'
 gem 'paperclip', '~> 5.0.0'
 gem 'aws-sdk', '~> 2.3'
 # gem 'jquery-turbolinks'
+gem 'nprogress-rails'
 
 
 group :development, :test do
