@@ -43,9 +43,10 @@ class VideosController < ApplicationController
   def show
     @reaction = Reaction.new
 
-    session[:last_video].unshift(params[:id])
-    session[:last_video] = session[:last_video].take(5)
-
+    if session[:last_video]
+      session[:last_video].unshift(params[:id])
+      session[:last_video] = session[:last_video].take(5)
+    end
 
   end
 

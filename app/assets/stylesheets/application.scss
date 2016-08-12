@@ -124,6 +124,15 @@ a:focus {
 }
 
 
+.nav-joinus-link {
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+
 .tooltip.bottom .tooltip-inner {
     background-color: #8897b9;
 }
@@ -261,4 +270,21 @@ i.material-icons:hover {
   box-shadow: none;
   border: none;
   text-align: center;
+}
+
+
+
+@media only screen and (max-width:769px){
+// body::before{ content: "Media query (width < 700px) fired"; font-weight: bold; display: block; text-align: center; background: rgba(255,255,0, 0.9);
+//  position: absolute; top: 0; left: 0; right: 0; z-index: 99;}
+
+
+
+  .nav-joinus-link {
+
+    flex-direction: row;
+
+
+  }
+
 }
