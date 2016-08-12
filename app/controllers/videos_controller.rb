@@ -1,6 +1,6 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:index, :new, :create, :update, :destroy]
   before_action :authorize_user!, only: [:index]
 
   def new
@@ -57,9 +57,14 @@ class VideosController < ApplicationController
   def next
     session[:last_video] = session[:last_video] || []
 
-    @video = current_user.get_next_video(session[:last_video])
+    if current_user
+      @video = current_user.get_next_video(session[:last_video])
+    else
+     @video = Video.get_random
+    end
+
     @reaction = Reaction.new
-    
+
     redirect_to action: 'show', id: @video.id
   end
 

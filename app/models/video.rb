@@ -19,6 +19,9 @@ class Video < ApplicationRecord
   end
 
 
+  def self.get_random
+    Video.find(Video.pluck(:id).sample)
+  end
 
 
   def liked_by?(user_id)

@@ -29,8 +29,11 @@
     <div class="reactions-container">
 
         <a href="#" data-toggle="modal" data-target="#reactionUpModal" class ="category-modal-nav button-disable">
-          <button class="<%= @video.liked_by?(current_user.id) ? "qush-button-reaction-liked" : "qush-button-reaction" %>" >
-
+            <% if current_user %>
+              <button class="<%= @video.liked_by?(current_user.id) ? "qush-button-reaction-liked" : "qush-button-reaction" %>" >
+            <% else  %>
+              <button class="qush-button-reaction" >
+            <% end %>
             <i class="material-icons reaction-icons">favorite</i>
             <!-- <%= image_tag('qush-icon.png', alt: "qush-icon", :class => "qush-favorite-icon") %> -->
             <span class="rating-count"> <%= @video.reactions.only_likes.count %></span>
@@ -87,10 +90,11 @@
 
 
 
+      <% if current_user %>
 
-
-      <%= render :partial => "reaction_up_modal" %>
-      <%= render :partial => "reaction_down_modal" %>
+        <%= render :partial => "reaction_up_modal" %>
+        <%= render :partial => "reaction_down_modal" %>
+      <% end %>
 
 
       <%= render :partial => "videos/video_show_view_js" %>

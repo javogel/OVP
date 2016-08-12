@@ -11,7 +11,7 @@ class User < ApplicationRecord
   # has_many :users, :through => :following
 
   validates :first_name, :last_name, :email, presence: true
-  validates :email, uniqueness: true
+  # validates :email, uniqueness: true
 
   class << self
     def from_omniauth(auth_hash)
@@ -45,8 +45,10 @@ class User < ApplicationRecord
     candidate_video_ids -= last_seen_video_ids
 
     Video.find_by(id: candidate_video_ids.sample) ||
-      Video.find(Video.pluck(id).sample)
+      Video.get_random
   end
+
+
 
 
   def add_category(category_id)
