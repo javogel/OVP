@@ -21,6 +21,12 @@
 //= require_tree .
 
 
+
+
+
+
+
+// Progress bar configuration
 NProgress.configure({
   showSpinner: true,
   ease: 'ease',
