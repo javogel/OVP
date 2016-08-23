@@ -43,10 +43,14 @@ class VideosController < ApplicationController
   def show
     @video = Video.find(params[:id])
     @reaction = Reaction.new
-    keywords = ""
+    keywords = "good quality video "
 
     @video.categories.each do |category|
-      keywords += category.name
+     keywords += category.name + " "
+    end
+
+    if keywords.empty?
+      keywords = "great quality short amazing video content"
     end
 
     if session[:last_video]
