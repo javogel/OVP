@@ -41,12 +41,38 @@ class VideosController < ApplicationController
   end
 
   def show
+    @video = Video.find(params[:id])
     @reaction = Reaction.new
+    keywords = ""
+
+    @video.categories.each do |category|
+      keywords += category.name
+    end
 
     if session[:last_video]
       session[:last_video].unshift(params[:id])
       session[:last_video] = session[:last_video].take(5)
     end
+
+
+
+    set_meta_tags(title: @video.name,
+                      description: "",
+                      keywords: keywords,
+                        #  canonical: @post.canonical,
+                        #  author: @post.author,
+                        #  publisher: @post.publisher
+                      og: {
+                         title:    @video.name,
+                         type:     'video.other',
+                         url:      request.original_url,
+                         image:    'http://img.youtube.com/vi/' + @video.youtube_id + '/mqdefault.jpg',
+                        #  video:    {
+                        #      director: 'http://www.imdb.com/name/nm0000881/',
+                        #      writer:   ['http://www.imdb.com/name/nm0918711/', 'http://www.imdb.com/name/nm0177018/']
+                        #    }
+                       }
+                  )
 
   end
 

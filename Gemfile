@@ -11,6 +11,7 @@ gem 'paperclip', '~> 5.0.0'
 gem 'aws-sdk', '~> 2.3'
 # gem 'jquery-turbolinks'
 gem 'nprogress-rails'
+gem 'meta-tags'
 
 
 group :development, :test do
