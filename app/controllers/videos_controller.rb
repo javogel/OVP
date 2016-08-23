@@ -69,12 +69,16 @@ class VideosController < ApplicationController
 
                       fb: {
                          app_id: '1800169466872419'
-                      },  
+                      },
                       og: {
                          title:    @video.name,
                          type:     'video.other',
                          url:      request.original_url,
-                         image:    'http://img.youtube.com/vi/' + @video.youtube_id + '/maxresdefault.jpg',
+                         image: {
+                            _: 'http://img.youtube.com/vi/' + @video.youtube_id + '/maxresdefault.jpg',
+                            width: 1280,
+                            height: 720,
+                            },
                         #  video:    {
                         #      director: 'http://www.imdb.com/name/nm0000881/',
                         #      writer:   ['http://www.imdb.com/name/nm0918711/', 'http://www.imdb.com/name/nm0177018/']
