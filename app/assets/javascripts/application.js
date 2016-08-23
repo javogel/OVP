@@ -22,10 +22,6 @@
 
 
 
-
-
-
-
 // Progress bar configuration
 NProgress.configure({
   showSpinner: true,
@@ -36,7 +32,7 @@ NProgress.configure({
 
 $( document ).ready(function() {
 
-progressBar();
+    progressBar();
 
 
 
