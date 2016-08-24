@@ -43,6 +43,7 @@ class VideosController < ApplicationController
   def show
     @video = Video.find(params[:id])
     @reaction = Reaction.new
+    @qush_video_url = request.original_url
     keywords = "good quality video "
 
     @video.categories.each do |category|
@@ -73,7 +74,7 @@ class VideosController < ApplicationController
                       og: {
                          title:    @video.name,
                          type:     'video.other',
-                         url:      request.original_url,
+                         url:      @qush_video_url ,
                          image: {
                             _: 'http://img.youtube.com/vi/' + @video.youtube_id + '/maxresdefault.jpg',
                             width: 1280,
