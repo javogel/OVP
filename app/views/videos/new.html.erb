@@ -18,14 +18,18 @@
   <h3> Video Categories </h3>
   <p> Select the categories that best describe your video: </p>
 
-  <select multiple="multiple" id="category-video-image-picker" name="categories[]" class="image-picker category-image-picker show-html">
+  <div class="add-categories material-icons">
 
-    <%= @categories.each do |category|%>
-    <option data-img-src="<%= category.category_image.url(:medium) %>" value="<%= category.id %>"> <%= category.name %></option>
-    <% end %>
+    <select multiple="multiple" id="category-video-image-picker" name="categories[]" class="image-picker category-image-picker show-html">
+
+      <%= @categories.each do |category|%>
+      <option data-img-src="<%= category.category_image.url(:medium) %>" value="<%= category.id %>"> <%= category.name %></option>
+      <% end %>
 
 
-  </select>
+    </select>
+
+  </div>
 
 
   <%= submit_tag("Share Video", :class => "qush-button") %>

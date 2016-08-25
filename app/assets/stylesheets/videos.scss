@@ -178,6 +178,38 @@ outline-color: #8897b9;
 
 }
 
+.add-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-container .thumbnail {
+  max-width: 250px;
+}
+
+
+.add-container .thumbnail.selected:after {
+   position:absolute;
+   left: 0px;
+   top: 0px;
+   bottom: 0px;
+   width: 100%;
+   background: rgba(136,151,185,0.5);
+   color: white;
+   text-align: center;
+   content: 'check_circle';
+   padding: 20px;
+ }
+
+ .add-categories.material-icons {
+   white-space: normal;
+ }
+
+ .add-container .qush-button {
+   max-width: 100px;
+   align-self: center;
+ }
+
 .qush-favorite-icon {
   max-width: 20px
 }
