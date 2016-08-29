@@ -12,6 +12,7 @@ gem 'aws-sdk', '~> 2.3'
 # gem 'jquery-turbolinks'
 gem 'nprogress-rails'
 gem 'meta-tags'
+gem 'react-rails'
 
 
 group :development, :test do
