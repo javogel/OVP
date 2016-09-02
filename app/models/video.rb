@@ -6,6 +6,11 @@ class Video < ApplicationRecord
   validates :youtube_id, presence: true
   validates :youtube_id, uniqueness: true
 
+  has_many :category_describes
+
+
+
+
   def self.build_from_youtube(url)
     begin
       youtube_video = Yt::Video.new url: url

@@ -6,9 +6,12 @@ class User < ApplicationRecord
 
   has_many :followers, :class_name => 'Follow', :foreign_key => 'user_id'
   has_many :following, :class_name => 'Follow', :foreign_key => 'follower_id'
-  # In order to do User.find(1).followers.push(User.last) would the below code work?
-  # has_many :users, :through => :followers
-  # has_many :users, :through => :following
+
+
+  has_many :category_describes
+
+
+
 
   validates :first_name, :last_name, :email, presence: true
   # validates :email, uniqueness: true

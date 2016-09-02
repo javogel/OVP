@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160731130348) do
+ActiveRecord::Schema.define(version: 20160829125143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,17 @@ ActiveRecord::Schema.define(version: 20160731130348) do
     t.string   "category_image_content_type"
     t.integer  "category_image_file_size"
     t.datetime "category_image_updated_at"
+  end
+
+  create_table "category_describes", force: :cascade do |t|
+    t.integer  "video_id"
+    t.integer  "user_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["category_id"], name: "index_category_describes_on_category_id", using: :btree
+    t.index ["user_id"], name: "index_category_describes_on_user_id", using: :btree
+    t.index ["video_id"], name: "index_category_describes_on_video_id", using: :btree
   end
 
   create_table "follows", force: :cascade do |t|
@@ -93,6 +104,9 @@ ActiveRecord::Schema.define(version: 20160731130348) do
     t.index ["user_id"], name: "index_videos_on_user_id", using: :btree
   end
 
+  add_foreign_key "category_describes", "categories"
+  add_foreign_key "category_describes", "users"
+  add_foreign_key "category_describes", "videos"
   add_foreign_key "follows", "users"
   add_foreign_key "reactions", "users"
   add_foreign_key "reactions", "videos"
