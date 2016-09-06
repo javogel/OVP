@@ -1,12 +1,12 @@
 
 const styles = {
-
-  active: {
-    display: "inherit"
-  },
-  inactive: {
-    display: "none"
-  }
+  // 
+  // active: {
+  //   display: "inherit"
+  // },
+  // inactive: {
+  //   display: "none"
+  // }
 };
 
 var Describe = React.createClass({
