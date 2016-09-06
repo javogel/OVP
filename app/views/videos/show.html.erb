@@ -62,12 +62,16 @@
 
     </div>
 
-    <div id="describeCollapsible" class="collapse">
-       Lorem ipsum dolor sic amet
-       Lorem ipsum dolor sic amet
-       Lorem ipsum dolor sic amet
-       Lorem ipsum dolor sic amet
-       Lorem ipsum dolor sic amet
+    <div id="describeCollapsible" class="collapse describe-collapse">
+
+      <!-- <%= react_component 'Categories', { category_pictures: @categories } %> -->
+
+      <% @categories.each do |category| %>
+
+        <img src="<%= category.category_image.url(:medium) %>" id="<%= "category" + category.id.to_s %>" >
+
+      <% end %>
+
     </div>
 
 
