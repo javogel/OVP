@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 
 # gem 'devise'
 gem 'omniauth'
-gem 'omniauth-facebook'
+gem 'omniauth-facebook', '~> 4.0.0'
 gem 'bootstrap-sass'
 gem 'figaro'
 gem 'yt', '~> 0.25.5'
