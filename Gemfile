@@ -7,7 +7,7 @@ gem 'omniauth-facebook', '~> 4.0.0'
 gem 'bootstrap-sass'
 gem 'figaro'
 gem 'yt', '~> 0.25.5'
-gem 'paperclip', '~> 5.0.0'
+gem 'paperclip', '~> 5.2.0'
 gem 'aws-sdk', '~> 2.3'
 # gem 'jquery-turbolinks'
 gem 'nprogress-rails'
@@ -33,7 +33,7 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
+# gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
